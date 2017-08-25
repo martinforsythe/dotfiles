@@ -2,6 +2,9 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 PS1="\W:$ "
 
+#ENV VARS
+export DOTFILES=$HOME/martin/dotfiles
+
 #PATH
 export PATH=/usr/local/manual/bin:$PATH
 
