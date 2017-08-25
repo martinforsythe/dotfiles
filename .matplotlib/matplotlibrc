@@ -1,0 +1,148 @@
+### MATPLOTLIBRC FORMAT
+
+# This is the global matplotlib configuration file stored in
+# HOME/.matplotlib/matplotlibrc 
+#### CONFIGURATION BEGINS HERE
+
+### LINES See http://matplotlib.sourceforge.net/matplotlib.lines.html 
+lines.linewidth   : 2.0     # line width in points
+lines.linestyle   : -       # solid line
+lines.markersize  : 5       # line marker size
+lines.dash_capstyle  : round # cap style of dotted lines
+lines.dash_joinstyle : round # line join style
+
+### FONT see http://matplotlib.sourceforge.net/matplotlib.font_manager.html 
+# The font.size property is the default font size for text, given in pts. 12pt is the standard value.
+font.size           : 11.0
+font.family         : sans-serif
+font.style          : normal
+font.weight         : normal 
+#font.weight defaults to medium
+
+# note that font.size controls default text sizes.  To configure
+# special text sizes tick labels, axes, labels, title, etc, see the rc
+# settings for axes and ticks. Special text sizes can be defined
+# relative to font.size, using the following values: xx-small, x-small,
+# small, medium, large, x-large, xx-large, larger, or smaller
+
+font.serif          : Computer Modern Roman, Times New Roman, Bitstream Vera Serif, New Century Schoolbook, Century Schoolbook L, Utopia, ITC Bookman, Bookman, Nimbus Roman No9 L, Times New Roman, Times, Palatino, Charter, serif
+font.sans-serif     : Computer Modern Sans Serif, Arial, Helvetica, Bitstream Vera Sans, Lucida Grande, Verdana, Geneva, Lucid, Avant Garde, sans-serif
+
+### TEXT See  http://matplotlib.sourceforge.net/matplotlib.text.html 
+text.color          : black
+
+### LaTeX customizations. See http://www.scipy.org/Wiki/Cookbook/Matplotlib/UsingTex
+#text.usetex         : True    # use latex for all text handling. The following fonts
+                              # are supported through the usual rc parameter settings:
+                              # new century schoolbook, bookman, times, palatino,
+                              # zapf chancery, charter, serif, sans-serif, helvetica,
+                              # avant garde, courier, monospace, computer modern roman,
+                              # computer modern sans serif, computer modern typewriter
+#text.latex.preamble :  \usepackage{bm},\usepackage{boldmath}
+                            # An example:
+                            # text.latex.preamble : \usepackage{bm},\usepackage{euler}
+                            # The following packages are always loaded with usetex, so
+                            # beware of package collisions: color, geometry, graphicx,
+                            # type1cm, textcomp. Adobe Postscript (PSSNFS) font packages
+                            # may also be loaded, depending on your font settings
+
+#mathtext.fontset : stixsans # Should be 'cm' (Computer Modern), 'stix',
+                       # 'stixsans' or 'custom'
+mathtext.fallback_to_cm : True  # When True, use symbols from the Computer Modern
+			     # fonts when a symbol can not be found in one of
+				 # the custom math fonts.
+
+### AXES see http://matplotlib.sourceforge.net/matplotlib.axes.html#Axes
+#axes.hold           : True    # whether to clear the axes by default on
+#axes.facecolor      : white   # axes background color
+axes.edgecolor       : black   # axes edge color
+#axes.linewidth      : 1.0     # edge linewidth
+#axes.grid           : False   # display grid or not
+axes.titlesize       : 11   # fontsize of the axes title
+axes.labelsize       : 11  # fontsize of the x any y labels
+axes.labelcolor      : black
+#axes.axisbelow      : False   # whether axis gridlines and ticks are below
+                               # the axes elements (lines, text, etc)
+axes.formatter.limits : -7, 7 # use scientific notation if log10
+                               # of the axis range is smaller than the
+                               # first or larger than the second
+
+## COLORS
+axes.prop_cycle    : ( cycler('color', ['3778bf','feb308','77ab56','825f87','a51c30','262626','808080']*3) + cycler('linestyle', ['-']*7+[':']*7+['--']*7)  ) # color cycle for plot lines
+# axes.prop_cycle    : cycler('color', ['294a72','c69835','7f1d32','2e6a43','1d1d1d'])   # alt color cycle for plot lines
+
+### TICKS see http://matplotlib.sourceforge.net/matplotlib.axis.html#Ticks
+xtick.major.size     : 3      # major tick size in points
+xtick.minor.size     : 2      # minor tick size in points
+xtick.major.width    : 1
+xtick.minor.width    : 0.75
+xtick.major.pad      : 3      # distance to major tick label in points
+xtick.minor.pad      : 3      # distance to the minor tick label in points
+xtick.color          : k      # color of the tick labels
+xtick.labelsize      : 11 # fontsize of the tick labels
+xtick.direction      : out     # direction: in or out
+ytick.major.size     : 4      # major tick size in points
+ytick.minor.size     : 2      # minor tick size in points
+ytick.major.width    : 1
+ytick.minor.width    : 0.75
+ytick.major.pad      : 3      # distance to major tick label in points
+ytick.minor.pad      : 3      # distance to the minor tick label in points
+ytick.color          : k      # color of the tick labels
+ytick.labelsize      : 11 # fontsize of the tick labels
+ytick.direction      : out     # direction: in or out
+
+
+### GRIDS
+#grid.color       :   black   # grid color
+#grid.linestyle   :   :       # dotted
+#grid.linewidth   :   0.5     # in points
+
+### Legend
+legend.fancybox      : False  # if True, use a rounded box for the
+                               # legend, else a rectangle
+#legend.isaxes        : True
+legend.numpoints      : 2      # the number of points in the legend line
+legend.fontsize       : 11
+#legend.pad           : 0.0    # deprecated; the fractional whitespace inside the legend border
+#legend.borderpad     : 0.5    # border whitspace in fontsize units
+#legend.markerscale   : 1.0    # the relative size of legend markers vs. original
+# the following dimensions are in axes coords
+#legend.labelsep      : 0.010  # the vertical space between the legend entries
+#legend.handlelen     : 0.05   # the length of the legend lines
+#legend.handletextsep : 0.02   # the space between the legend line and legend text
+#legend.axespad       : 0.02   # the border between the axes and legend edge
+legend.shadow        : False
+legend.handlelength  : 2  # the length of the legend lines in fraction of fontsize
+legend.handleheight  : 0.6  # the height of the legend handle in fraction of fontsize
+legend.handletextpad : 0.2  # the space between the legend line and legend text in fraction of fontsize
+legend.columnspacing : 0.6  # the border between the axes and legend edge in fraction of fontsize
+
+### FIGURE
+# See http://matplotlib.sourceforge.net/matplotlib.figure.html#Figure
+#figure.figsize    : 5.040000116230801, 3.1148913751340559    # figure size in inches
+figure.figsize    : 3.1641731631382317, 1.9555665611096933    # figure size in inches for 95% single-column width
+figure.dpi        : 300     # figure dots per inch
+figure.autolayout : True
+#figure.facecolor : 0.75    # figure facecolor; 0.75 is scalar gray
+#figure.edgecolor  : black   # figure edgecolor
+
+# The figure subplot parameters.  All dimensions are fraction of the
+# figure width or height
+#figure.subplot.left	: 0.125  # the left side of the subplots of the figure
+#figure.subplot.right	: 0.9    # the right side of the subplots of the figure
+#figure.subplot.bottom	: 0.1    # the bottom of the subplots of the figure
+#figure.subplot.top	    : 0.9    # the top of the subplots of the figure
+#figure.subplot.wspace	: 0.2    # the amount of width reserved for blank space between subplots
+#figure.subplot.hspace	: 0.2    # the amount of height reserved for white space between subplots
+
+### SAVING FIGURES
+# the default savefig params can be different from the display params
+# Eg, you may want a higher resolution, or to make the figure background white
+savefig.dpi        : 300      # figure dots per inch
+savefig.transparent : True    # figure facecolor transparent when saving
+#savefig.facecolor : white    # figure facecolor when saving
+#savefig.edgecolor : white    # figure edgecolor when saving
+
+# Set the verbose flags.  
+#verbose.level  : helpful      # one of silent, helpful, debug, debug-annoying
+
