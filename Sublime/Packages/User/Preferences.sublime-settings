@@ -1,0 +1,22 @@
+{
+	"auto_complete": true,
+	"font_face": "Inconsolata",
+	"font_size": 14,
+	"highlight_line": false,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"ASP",
+		"C#",
+		"Groovy",
+		"Objective-C",
+		"OCaml",
+		"Textile",
+		"Vintage"
+	],
+	"line_padding_bottom": 1,
+	"line_padding_top": 1,
+	"theme": "Soda SolarizedDark.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"word_wrap": true
+}

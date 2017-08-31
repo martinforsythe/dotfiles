@@ -1,0 +1,6 @@
+{
+    "cmd": ["/usr/local/manual/anaconda3/bin/python", "-u", "$file"],
+    "shell_cmd": "/usr/local/manual/anaconda3/bin/python -u \"$file\"",
+    "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+    "selector": "source.python"
+}

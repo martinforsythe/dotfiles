@@ -1,0 +1,5 @@
+// These settings override both User and Default settings for the Python syntax
+{
+    // set vertical ruler for PEP8
+    "rulers": [80, 100],
+}
