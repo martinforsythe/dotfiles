@@ -1,0 +1,74 @@
+"*":
+  "atom-beautify":
+    cpp: {}
+    general:
+      analytics: false
+      muteAllErrors: true
+      muteUnsupportedLanguageErrors: true
+    python:
+      sort_imports: true
+  core:
+    disabledPackages: [
+      "linter-pep8"
+      "python-autopep8"
+      "linter"
+      "linter-flake8"
+      "python-jedi"
+    ]
+    ignoredNames: [
+      ".git"
+      ".hg"
+      ".svn"
+      ".DS_Store"
+      "._*"
+      "Thumbs.db"
+      ".ipynb"
+      "__pycache__"
+      ".pyc"
+      ".ipynb_checkpoints"
+    ]
+    projectHome: "/Users/martin/gamalon/"
+    telemetryConsent: "no"
+    themes: [
+      "atom-dark-ui"
+      "monokai-soda"
+    ]
+    warnOnLargeFileLimit: 50
+  editor:
+    fontFamily: "Inconsolata"
+    fontSize: 16
+    tabLength: 4
+  "exception-reporting":
+    userId: "e067d5f5-f3dd-52c3-9962-3669ddb7504f"
+  "git-diff":
+    showIconsInEditorGutter: true
+  linter:
+    errorPanelHeight: 22
+    gutterPosition: "Left"
+  "linter-flake8":
+    ignoreErrorCodes: [
+      "D102"
+      "D103"
+    ]
+    maxLineLength: 79
+    pycodestyleErrorsToWarnings: true
+  "linter-pep8":
+    maxLineLength: 80
+  minimap:
+    textOpacity: 0.55
+  "python-autopep8":
+    maxLineLength: 80
+  "python-jedi":
+    Pathtopython: "/Users/martin/.virtualenvs/py27/bin/python"
+  script:
+    ignoreSelection: true
+    stopOnRerun: true
+  welcome:
+    showOnStartup: false
+".breakpoints.hydrogen":
+  editor:
+    preferredLineLength: 79
+    scrollPastEnd: true
+    softWrap: true
+    softWrapAtPreferredLineLength: true
+    tabLength: 4
