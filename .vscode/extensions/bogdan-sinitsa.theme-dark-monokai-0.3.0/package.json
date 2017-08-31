@@ -1,0 +1,28 @@
+{
+	"name": "theme-dark-monokai",
+	"description": "Dark Monokai",
+	"version": "0.3.0",
+	"publisher": "bogdan-sinitsa",
+	"engines": {
+		"vscode": "*"
+	},
+	"contributes": {
+		"themes": [
+			{
+				"label": "Dark (Monokai)",
+				"uiTheme": "vs-dark",
+				"path": "./themes/DarkMonokai.tmTheme"
+			}
+		]
+	},
+	"icon": "icon.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/BogdanSinitsa/theme-dark-monokai.git"
+	},
+	"__metadata": {
+		"id": "b75da8e4-c57a-433b-b40c-d3566365c95e",
+		"publisherId": "734646c8-e316-46e9-9a7c-f1635c5409a5",
+		"publisherDisplayName": "bogdan-sinitsa"
+	}
+}
