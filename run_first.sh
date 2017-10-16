@@ -27,3 +27,5 @@ cd $DOTFILES
 
 brew tap Homebrew/bundle
 brew bundle
+
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
