@@ -1,8 +1,49 @@
+" ----- START KEY REMAPPINGS -----
+" force arrow keys off
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+"inoremap <up> <nop>
+"inoremap <down> <nop>
+"inoremap <left> <nop>
+"inoremap <right> <nop>
+
+" remap F1 to ESC
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+
+" strip trailing whitespace
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
+" exit back to normal mode
+inoremap jj <ESC>
+
+" sort CSS properties
+"nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
+" ----- END KEY REMAPPINGS -----
+
+" vim command completions
+set wildmenu
+
+" force utf-8 encoding
+set encoding=utf-8
+
+" visual bell
+set visualbell
+
 " show a visual line under the cursor's current line
 set cursorline
 
-"turn on numbering
+" turn on line numbering
 set nu
+
+" turn off absolute line numbering in favor of relative
+" set relativenumber
+" likewise make j/k work by relative number
+nnoremap j gj
+nnoremap k gk
 
 " show the matching part of the pair for [] {} and ()
 set showmatch
@@ -10,8 +51,30 @@ set showmatch
 " set font to Inconsolata 14pt
 set guifont=Inconsolata:h14
 
-"I don't like swap files
+" I don't like swap files
 set noswapfile
+
+" Turn off vi compatibility
+set nocompatible
+
+" Avoid modelines security exploits
+set modelines=0
+
+" show a ruler at 85 chars
+set colorcolumn=85
+
+"----------------- Modify search/move ---------------------
+nnoremap / /\v
+vnoremap / /\v
+set ignorecase
+set smartcase
+set gdefault
+set incsearch
+set showmatch
+set hlsearch
+" nnoremap <leader><space> :noh<cr>
+nnoremap <tab> %
+vnoremap <tab> %
 
 "---------- VUNDLE PLUGIN STUFF ---------------------------
 set nocompatible
@@ -30,6 +93,12 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 " Plugin 'ctrlpvim/ctrlp.vim'  " fuzzy file paths
+
+" Rust syntax
+Plugin 'rust-lang/rust.vim'
+
+" Racer for Rust code competion
+Plugin 'racer-rust/vim-racer'
 
 " python sytax checker
 Plugin 'nvie/vim-flake8'
@@ -53,10 +122,22 @@ Plugin 'sickill/vim-monokai'
 call vundle#end()
 "------------- END VUNDLE STUFF -------------------------
 
-
 " enable filetype detection
 filetype plugin indent on
 
+" --- plugins that I'm not sure that I like ---
+" code folding:
+" let g:SimpylFold_docstring_preview = 1
+"
+" YouCompleteMe autocomplete
+let g:ycm_autoclose_preview_window_after_completion=1
+"
+" custom keys for YouCompleteMe plugin
+" let mapleader key be space
+"map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"
+
+"------------- Color scheme ---------------------------
 syntax enable
 colorscheme monokai-custom
 
@@ -66,7 +147,7 @@ hi Normal ctermbg=none
 " ignore files in NERDTree
 let NERDTreeIgnore=['\.pyc$', '\~$']
 
-"python with virtualenv support
+"------------- Python with virtualenv support ---------
 py << EOF
 import os.path
 import sys
@@ -83,16 +164,6 @@ EOF
 "omnicomplete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 
-" --- plugins that I'm not sure that I like ---
-" code folding:
-" let g:SimpylFold_docstring_preview = 1
-"
-" YouCompleteMe autocomplete
-let g:ycm_autoclose_preview_window_after_completion=1
-" custom keys for YouCompleteMe plugin
-" let mapleader key be space
-"map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-"
 
 "------------Start Python PEP 8 stuff----------------
 " Number of spaces that a pre-existing tab is equal to.
@@ -137,3 +208,14 @@ set backspace=indent,eol,start
 "" use space to open folds
 "nnoremap <space> za 
 "----------Stop python PEP 8 stuff--------------
+
+"---------- Start Rust stuff -------------------
+" automatically run :RustFmt when you save a buffer
+au BufNewFile *.rs let g:rustfmt_autosave = 1
+
+" expand tabs to 4 spaces
+au BufNewFile *.rs set tabstop=4
+au BufNewFile *.rs set shiftwidth=4
+au BufNewFile *.rs set softtabstop=4
+au BufNewFile *.rs set expandtab
+"---------- End Rust stuff ---------------------
