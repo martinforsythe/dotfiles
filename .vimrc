@@ -107,7 +107,7 @@ Plugin 'vim-scripts/indentpython.vim'
 Plugin 'scrooloose/syntastic'
 
 " auto-completion stuff
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 " Plugin 'klen/python-mode'
 " Plugin 'klen/rope-vim'
 Plugin 'davidhalter/jedi-vim'
