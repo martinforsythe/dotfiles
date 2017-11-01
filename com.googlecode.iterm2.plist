@@ -242,7 +242,7 @@
 			<key>Background Image Is Tiled</key>
 			<false/>
 			<key>Background Image Location</key>
-			<string>/Users/oberon/Pictures/forsyth_griffin.png</string>
+			<string>/Users/oberon/dotfiles/forsyth_griffin.png</string>
 			<key>Blend</key>
 			<real>0.40106545472756416</real>
 			<key>Blink Allowed</key>
