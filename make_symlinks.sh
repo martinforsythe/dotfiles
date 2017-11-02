@@ -9,34 +9,36 @@
 
 ########## Variables
 
-dir=$DOTFILES           # dotfiles directory
-olddir=$HOME/dotfiles_bak   # old dotfiles backup directory
+dotfiles=$HOME/dotfiles     # dotfiles directory
+backup=$HOME/.dotfiles_bak   # old dotfiles backup directory
 # list of files/folders to symlink in $HOME
-files="bashrc bash_profile functions gitconfig vimrc"
+files="bash_profile bash_profile_venv gitconfig vimrc" #functions
+dotdirs="vim atom"
 
-echo $dir
-echo $olddir
+echo "Dotfiles:" $dotfiles
+echo "Dotfiles backup:" $backup
 
 # create dotfiles_bak in $HOME
-echo -n "Creating $olddir for backup of any existing dotfiles in ~ ..."
-mkdir -p $olddir
-echo "done"
+echo -n "Creating $backup for backup of any existing dotfiles in ~ ..."
+mkdir -p $backup
 
 # change to the dotfiles directory
-echo -n "Changing to the $dir directory ..."
-cd $dir
-echo "done"
+echo -n "Changing to the $dotfiles directory ..."
+cd $dotfiles
 
 # move any existing dotfiles in $HOME to dotfiles_bak directory, then
 # create symlinks from the $HOME to any files in the $DOTFILES directory
 # specified in $files
+echo "Moving any existing dotfiles from ~ to $backup"
 for file in $files; do
-    echo "Moving any existing dotfiles from ~ to $olddir"
-    mv $HOME/.$file $HOME/dotfiles_old/
+    mv $HOME/.$file $backup
     echo "Creating symlink to $file in home directory."
-    ln -s $dir/$file $HOME/.$file
+    ln -s $dotfiles/.$file $HOME/.$file
 done
 
-for dir in $dirs; do
-    ln -s $PWD/$dir $HOME/.$dir
+echo "Moving any existing dot directories from ~ to $backup"
+for dir in $dotdirs; do
+    mv $HOME/.$dir $backup
+    echo "Creating symlink to $dir in home directory."
+    ln -s $dotfiles/.$dir $HOME/.$dir
 done
