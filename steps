@@ -1,0 +1,12 @@
+Install inconsolata
+
+https://github.com/google/fonts/tree/master/ofl/inconsolata
+
+Import termianl profile
+
+After brew:
+Pyenv install 2.7.14
+Pyenv install 3.6.3
+
+Install virtualenvwrapper
+
