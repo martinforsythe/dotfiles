@@ -33,12 +33,12 @@ echo "Moving any existing dotfiles from ~ to $backup"
 for file in $files; do
     mv $HOME/.$file $backup
     echo "Creating symlink to $file in home directory."
-    ln -s $dotfiles/.$file $HOME/.$file
+    ln -s $dotfiles/$file $HOME/.$file
 done
 
 echo "Moving any existing dot directories from ~ to $backup"
 for dir in $dotdirs; do
     mv $HOME/.$dir $backup
     echo "Creating symlink to $dir in home directory."
-    ln -s $dotfiles/.$dir $HOME/.$dir
+    ln -s $dotfiles/$dir $HOME/.$dir
 done
