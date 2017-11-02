@@ -1,0 +1,20 @@
+#!/bin/bash
+# This script facilitates creating virtualenvs through
+# virtualenvwrapper and pyenv
+# It expects env variables $WORKON_HOME and $PYENV_ROOT to be set
+
+if [ $# -ne 2 ]
+  then
+    echo "Expected arguments: venv_name python_version"
+    echo "Available python versions:"
+    pyenv versions
+else
+   VENVNAME=$1
+   VERSION=$2
+   
+   cd $WORKON_HOME
+   source /usr/local/bin/virtualenvwrapper.sh
+   
+   mkvirtualenv $VENVNAME -p$PYENV_ROOT/versions/$VERSION/bin/python
+
+fi
