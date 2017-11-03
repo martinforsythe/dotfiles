@@ -37,13 +37,14 @@ brew cask install xquartz
 brew cask install iterm2
 brew cask install sublime-text
 brew cask install atom
+brew cask install lastpass  # no checksum
 brew cask install gimp
 brew cask install inkscape
 brew cask install slack
 brew cask install gitup
 brew cask install mactex
 brew cask install adobe-acrobat-reader
-brew cask install dropbox
+brew cask install dropbox  # no checksum
 brew cask install google-chrome  # no checksum
 
 # Install Inconsolata font
