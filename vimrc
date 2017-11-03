@@ -1,4 +1,11 @@
 " ----- START KEY REMAPPINGS -----
+" during insert, kj escapes, `^ is so that the cursor doesn't move
+inoremap kj <Esc>`^
+" during insert, lkj escapes and saves
+inoremap lkj <Esc>`^:w<CR>
+" during insert, lkj escapes and saves and QUITS
+inoremap ;lkj <Esc>:wq<CR>
+
 " force arrow keys off
 nnoremap <up> <nop>
 nnoremap <down> <nop>
@@ -16,9 +23,6 @@ vnoremap <F1> <ESC>
 
 " strip trailing whitespace
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
-
-" exit back to normal mode
-inoremap jj <ESC>
 
 " sort CSS properties
 "nnoremap <leader>S ?{<CR>jV/^\s*\}?$<CR>k:sort<CR>:noh<CR>
