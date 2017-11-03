@@ -33,9 +33,7 @@ brew tap Homebrew/bundle
 brew bundle
 
 pyenv install 2.7.14
-pyenv install 3.6.2
-
-pip install virtualenv
+pyenv install 3.6.3
 
 # Install Inconsolata font
 echo "Installing Inconsolata font"
