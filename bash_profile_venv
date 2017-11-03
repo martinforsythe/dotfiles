@@ -6,13 +6,13 @@ export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 source /usr/local/bin/virtualenvwrapper.sh
 ## PYENV
-#export PYENV_ROOT="$HOME/.pyenv"
-#if [[ -d $PYENV_ROOT ]];
-#then
-#    PATH="$PYENV_ROOT/bin:$PATH"
-#    # initialize pyenv
-#    eval "$(pyenv init -)"
-#fi
+export PYENV_ROOT="$HOME/.pyenv"
+if [[ -d $PYENV_ROOT ]];
+then
+    PATH="$PYENV_ROOT/bin:$PATH"
+    # initialize pyenv
+    eval "$(pyenv init -)"
+fi
 
 ## only run pip if there is a virtualenv currently activated
 export PIP_REQUIRE_VIRTUALENV=true
