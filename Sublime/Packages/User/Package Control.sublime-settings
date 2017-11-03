@@ -6,13 +6,26 @@
 	"installed_packages":
 	[
 		"AutoPEP8",
+		"Autoprefixer",
+		"ayu",
+		"C++ Starting Kit",
+		"ColorPicker",
+		"Emmet",
 		"GitGutter",
-		"Jedi - Python autocompletion",
-		"MinimalFortran",
-		"Origami",
+		"Gutter Color",
+		"HTML-CSS-JS Prettify",
+		"isort",
+		"Javatar",
+		"Markdown Extended",
+		"Markdown Preview",
+		"MarkdownCodeBlockWrapper",
 		"Package Control",
-		"Theme - Soda",
-		"Theme - Soda SolarizedDark",
+		"PackageResourceViewer",
+		"Python 3",
+		"Python PEP8 Autoformat",
+		"SublimeLinter",
+		"SublimeLinter-cppcheck",
+		"SublimeLinter-pep8",
 		"Virtualenv"
 	]
 }

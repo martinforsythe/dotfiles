@@ -1,0 +1,24 @@
+{
+	"jdk_version":
+	{
+		"JDK1.8.0u131":
+		{
+			"path": "/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home/bin",
+			"update": "131",
+			"version": "1.8.0"
+		},
+		"JDK1.8.0u60":
+		{
+			"path": "/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/bin",
+			"update": "60",
+			"version": "1.8.0"
+		},
+		"use": ""
+	},
+	"message_id": 20,
+	"project_data":
+	{
+		"2": null,
+		"3": null
+	}
+}
