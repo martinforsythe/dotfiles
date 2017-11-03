@@ -42,3 +42,7 @@ for dir in $dotdirs; do
     echo "Creating symlink to $dir in home directory."
     ln -s $dotfiles/$dir $HOME/.$dir
 done
+
+# update Vundle to setup vim
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
