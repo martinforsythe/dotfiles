@@ -50,6 +50,7 @@ cask install gitup
 cask install mactex
 cask install adobe-acrobat-reader
 cask install java
+cask install caffeine
 cask install lastpass  # no checksum
 cask install dropbox  # no checksum
 cask install google-chrome  # no checksum
