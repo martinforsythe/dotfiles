@@ -32,6 +32,11 @@ cd $DOTFILES
 brew tap Homebrew/bundle
 brew bundle
 
+pyenv install 2.7.14
+pyenv install 3.6.2
+
+pip install virtualenv
+
 # Install Inconsolata font
 echo "Installing Inconsolata font"
 curl https://github.com/google/fonts/blob/master/ofl/inconsolata/Inconsolata-Regular.ttf --output /Library/Fonts/Inconsolata-Regular.ttf
