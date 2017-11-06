@@ -80,51 +80,9 @@ set hlsearch
 nnoremap <tab> %
 vnoremap <tab> %
 
-"---------- VUNDLE PLUGIN STUFF ---------------------------
-set nocompatible
-filetype off
-
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle
-Plugin 'VundleVim/Vundle.vim'
-
-" git interface
-Plugin 'tpope/vim-fugitive'
-
-" filesystem plugins
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-" Plugin 'ctrlpvim/ctrlp.vim'  " fuzzy file paths
-
-" Rust syntax
-Plugin 'rust-lang/rust.vim'
-
-" Racer for Rust code competion
-Plugin 'racer-rust/vim-racer'
-
-" python sytax checker
-Plugin 'nvie/vim-flake8'
-Plugin 'vim-scripts/Pydiction'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'scrooloose/syntastic'
-
-" auto-completion stuff
-" Plugin 'Valloric/YouCompleteMe'
-" Plugin 'klen/python-mode'
-" Plugin 'klen/rope-vim'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'ervandew/supertab'
-
-" code folding
-"Plugin 'tmhedberg/SimpylFold'
-
-" colorscheme (note, I acutally perfer a customized version)
-Plugin 'sickill/vim-monokai'
-
-call vundle#end()
-"------------- END VUNDLE STUFF -------------------------
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
+endif
 
 " enable filetype detection
 filetype plugin indent on
