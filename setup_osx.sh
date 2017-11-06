@@ -12,7 +12,7 @@ osascript -e 'tell application "System Preferences" to quit'
 # Ask for the administrator password upfront
 sudo -v
 
-# Keep-alive: update existing `sudo` time stamp until `.osx` has finished
+# Keep-alive: update existing `sudo` time stamp until script has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 ###############################################################################
@@ -51,6 +51,9 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 # Minimize windows into their application’s icon
 defaults write com.apple.dock minimize-to-application -bool true
 
+# Battery percentage
+defaults write com.apple.menuextra.battery ShowPercent YES
+
 # Hot corners
 # 'tl', 'tr', 'bl', 'br'
 # Possible values:
@@ -72,23 +75,6 @@ defaults write com.apple.dock wvous-bl-corner -int 4
 defaults write com.apple.dock wvous-bl-modifier -int 0
 
 ###############################################################################
-## SSD-specific tweaks                                                         #
-###############################################################################
-
-# # Disable hibernation (speeds up entering sleep mode)
-# sudo pmset -a hibernatemode 0
-
-# # Remove the sleep image file to save disk space
-# sudo rm /private/var/vm/sleepimage
-# # Create a zero-byte file instead…
-# sudo touch /private/var/vm/sleepimage
-# # …and make sure it can’t be rewritten
-# sudo chflags uchg /private/var/vm/sleepimage
-
-# # Disable the sudden motion sensor as it’s not useful for SSDs
-# sudo pmset -a sms 0
-
-###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
 
@@ -107,8 +93,8 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 10
 # # Disable auto-correct
 # defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
-# Remove duplicates in the “Open With” menu (also see `lscleanup` alias)
-/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
+# # Remove duplicates in the “Open With” menu (also see `lscleanup` alias)
+# /System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
 
 ###############################################################################
 # Screen                                                                      #
@@ -118,17 +104,14 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 10
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
-# Enable subpixel font rendering on non-Apple LCDs
-defaults write NSGlobalDomain AppleFontSmoothing -int 2
+# # Enable subpixel font rendering on non-Apple LCDs
+# defaults write NSGlobalDomain AppleFontSmoothing -int 2
 
-# Enable HiDPI display modes (requires restart)
-sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
-
-# Show the path bar at the top of Finder windows
-defaults write com.apple.finder _FXShowPosixPathInTitle -bool YES
+# # Enable HiDPI display modes (requires restart)
+# sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
 
 # Make all links in Safari open as separate tabs, not separate windows.
-defaults write com.apple.Safari TargetedClicksCreateTabs –bool TRUE
+defaults write com.apple.Safari TargetedClicksCreateTabs YES
 
 ###############################################################################
 # Finder                                                                      #
@@ -137,17 +120,17 @@ defaults write com.apple.Safari TargetedClicksCreateTabs –bool TRUE
 # # Finder: show hidden files by default
 # defaults write com.apple.finder AppleShowAllFiles -bool true
 
-# Finder: show all filename extensions
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+# # Finder: show all filename extensions
+# defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
-# Finder: show status bar
-defaults write com.apple.finder ShowStatusBar -bool true
+# # Finder: show status bar
+# defaults write com.apple.finder ShowStatusBar -bool true
 
 # Finder: show path bar
 defaults write com.apple.finder ShowPathbar -bool true
 
-# Display full POSIX path as Finder window title
-defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+# # Display full POSIX path as Finder window title
+# defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 
 ## Keep folders on top when sorting by name
 #defaults write com.apple.finder _FXSortFoldersFirst -bool true
@@ -186,7 +169,7 @@ sudo chflags nohidden /Volumes
 # 	Privileges -bool true
 
 ###############################################################################
-# Dock, Dashboard, and hot corners                                            #
+# Dock and Dashboard
 ###############################################################################
 
 # # Enable highlight hover effect for the grid view of a stack (Dock)
@@ -228,8 +211,8 @@ defaults write com.apple.Safari HomePage -string "about:blank"
 # Prevent Safari from opening ‘safe’ files automatically after downloading
 defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
 
-# Allow hitting the Backspace key to go to the previous page in history
-defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled -bool true
+# # Allow hitting the Backspace key to go to the previous page in history
+# defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled -bool true
 
 # Enable Safari’s debug menu
 defaults write com.apple.Safari IncludeInternalDebugMenu -bool true
@@ -346,8 +329,8 @@ defaults write com.apple.SoftwareUpdate AutomaticDownload -int 1
 # Install System data files & security updates
 defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 1
 
-# Automatically download apps purchased on other Macs
-defaults write com.apple.SoftwareUpdate ConfigDataInstall -int 1
+# # Automatically download apps purchased on other Macs
+# defaults write com.apple.SoftwareUpdate ConfigDataInstall -int 1
 
 # Turn on app auto-update
 defaults write com.apple.commerce AutoUpdate -bool true
