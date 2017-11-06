@@ -41,4 +41,7 @@ brew bundle --file=Caskfile
 
 . make_symlinks.sh
 
+# install Rust
+curl https://sh.rustup.rs -sSf | sh
+
 . pyenv_install.sh
