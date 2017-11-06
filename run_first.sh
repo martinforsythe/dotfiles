@@ -5,8 +5,10 @@
 #
 # Using Homebrew this installs some common packages that I use.
 
-# install command line tools
-xcode-select --install
+# install command line tools if not already installed
+if ! [ -d "$(xcode-select -p)" ]; then
+    xcode-select --install
+fi
 
 # point to dotfiles location
 export DOTFILES=$HOME/dotfiles
@@ -29,13 +31,14 @@ fi
 
 cd $DOTFILES
 
-brew tap Homebrew/bundle
-brew bundle
+brew tap homebrew/bundle
+brew update
+# brew bundle doesn't allow install options so we install vim manually
+brew install vim --with-override-system-vi --with-python3
 
-pyenv install 2.7.14
-pyenv install 3.6.3
+brew bundle --file=Brewfile
+brew bundle --file=Caskfile
 
-# Install Inconsolata font
-echo "Installing Inconsolata font"
-curl https://github.com/google/fonts/blob/master/ofl/inconsolata/Inconsolata-Regular.ttf --output /Library/Fonts/Inconsolata-Regular.ttf
-curl https://github.com/google/fonts/blob/master/ofl/inconsolata/Inconsolata-Bold.ttf --output /Library/Fonts/Inconsolata-Bold.ttf
+. make_symlinks.sh
+
+. pyenv_install.sh

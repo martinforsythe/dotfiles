@@ -13,4 +13,4 @@ alias server="python -m SimpleHTTPServer"
 alias jpn='jupyter notebook'
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 
-. .bash_profile_venv
+. $HOME/.bash_profile_venv

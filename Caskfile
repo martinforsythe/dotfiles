@@ -1,0 +1,18 @@
+# Brew casks
+tap "caskroom/cask"
+
+cask 'xquartz'
+cask 'iterm2'
+cask 'sublime-text'
+cask 'atom'
+cask 'gimp'
+cask 'inkscape'
+cask 'slack'
+cask 'gitup'
+cask 'mactex'
+cask 'adobe-acrobat-reader'
+cask 'java'
+cask 'caffeine'
+cask 'lastpass'  # no checksum
+cask 'dropbox'  # no checksum
+cask 'google-chrome'  # no checksum
