@@ -1,5 +1,5 @@
-source dein.vimrc
-source general.vimrc
-source keys.vimrc
-source ui.vimrc
-source plugin_config.vimrc
+source $HOME/dotfiles/nvim/dein.vimrc
+source $HOME/dotfiles/nvim/general.vimrc
+source $HOME/dotfiles/nvim/keys.vimrc
+source $HOME/dotfiles/nvim/ui.vimrc
+source $HOME/dotfiles/nvim/plugin_config.vimrc
