@@ -7,6 +7,8 @@
       muteUnsupportedLanguageErrors: true
     python:
       sort_imports: true
+  "autocomplete-python":
+    useKite: false
   core:
     disabledPackages: [
       "linter-pep8"
