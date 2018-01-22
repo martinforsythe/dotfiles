@@ -7,6 +7,7 @@ export DOTFILES=$HOME/dotfiles
 
 #PATH
 export PATH=/usr/local/manual/bin:$PATH
+export PATH=$PATH:$HOME/gamalon/tycho
 
 ## ALIASES
 alias server="python -m SimpleHTTPServer"
