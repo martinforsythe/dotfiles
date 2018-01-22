@@ -12,3 +12,4 @@
 
 [core]
 	editor = /usr/local/bin/vim
+	excludesfile = ~/.global_gitignore
