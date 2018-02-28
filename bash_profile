@@ -8,10 +8,13 @@ export DOTFILES=$HOME/dotfiles
 #PATH
 export PATH=/usr/local/manual/bin:$PATH
 export PATH=$PATH:$HOME/gamalon/tycho
+export PATH="$PATH:$HOME/.cargo/bin"
+export PATH=$PATH:/usr/local/share/pypy3:/usr/local/share/pypy
 
 ## ALIASES
 alias server="python -m SimpleHTTPServer"
 alias jpn='jupyter notebook'
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+export DOCKER="$HOME/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux"
 
 . $HOME/.bash_profile_venv
