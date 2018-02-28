@@ -92,7 +92,7 @@ filetype plugin indent on
 " let g:SimpylFold_docstring_preview = 1
 "
 " YouCompleteMe autocomplete
-let g:ycm_autoclose_preview_window_after_completion=1
+" let g:ycm_autoclose_preview_window_after_completion=1
 "
 " custom keys for YouCompleteMe plugin
 " let mapleader key be space
@@ -107,7 +107,7 @@ colorscheme monokai-custom
 hi Normal ctermbg=none
 
 " ignore files in NERDTree
-let NERDTreeIgnore=['\.pyc$', '\~$']
+"let NERDTreeIgnore=['\.pyc$', '\~$']
 
 "------------- Python with virtualenv support ---------
 "py << EOF
@@ -120,16 +120,17 @@ let NERDTreeIgnore=['\.pyc$', '\~$']
 "  activate_this = os.path.join(project_base_dir,'bin/activate_this.py')
 "  execfile(activate_this, dict(__file__=activate_this))
 "EOF
-
+"
 "it would be nice to set tag files by the active virtualenv here
 ":set tags=~/mytags "tags for ctags and taglist
 "omnicomplete
-autocmd FileType python set omnifunc=pythoncomplete#Complete
+"autocmd FileType python set omnifunc=pythoncomplete#Complete
 
 
 "------------Start Python PEP 8 stuff----------------
 " Number of spaces that a pre-existing tab is equal to.
-au BufRead,BufNewFile *py,*pyw,*.c,*.h set tabstop=4
+au BufRead,BufNewFile *py,*pyw set tabstop=4
+au BufRead,BufNewFile *.c,*.h set tabstop=4
 
 " spaces for indents
 au BufRead,BufNewFile *.py,*pyw set shiftwidth=4
@@ -143,7 +144,8 @@ highlight BadWhitespace ctermbg=red guibg=red
 au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /^\t\+/
 
 " Make trailing whitespace be flagged as bad.
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+au BufRead,BufNewFile *.py,*.pyw match BadWhitespace /\s\+$/
+au BufRead,BufNewFile *.c,*.h match BadWhitespace /\s\+$/
 
 " Wrap text after a certain number of characters
 au BufRead,BufNewFile *.py,*.pyw, set textwidth=100
@@ -164,6 +166,17 @@ autocmd FileType python set autoindent
 " make backspaces more powerfull
 set backspace=indent,eol,start
 
+" flake8 checks pep8, pyflakes, and circular complexity so it is enough
+let b:ale_linters = {
+\   'python': ['flake8'],
+\   'javascript': ['eslint'],
+\}
+
+" Specify which tools ALE should use to fix linting errors
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\   'python': ['autopep8'],
+\}
 
 "" Code Folding based on indentation:
 "autocmd FileType python set foldmethod=indent

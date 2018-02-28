@@ -12,7 +12,7 @@
 dotfiles=$HOME/dotfiles     # dotfiles directory
 backup=$HOME/.dotfiles_bak   # old dotfiles backup directory
 # list of files/folders to symlink in $HOME
-files="bash_profile bash_profile_venv global_gitignore gitconfig vimrc" #functions
+files="bash_profile bash_profile_venv global_gitignore gitconfig vimrc vimrc.bundles" #functions
 dotdirs="vim atom"
 
 echo "Dotfiles:" $dotfiles
