@@ -29,14 +29,18 @@ hi ColorColumn                             ctermbg=237                          
 
 hi LineNr                    ctermfg=102   ctermbg=237                  guifg=#90908a guibg=#3c3d37
 hi CursorLineNR              ctermfg=202   ctermbg=237                  guifg=#90908a guibg=#3c3d37
+
 hi VertSplit                 ctermfg=241   ctermbg=241                  guifg=#64645e guibg=#64645e
 hi MatchParen                ctermfg=197                                guifg=#f92672 
 hi StatusLine                ctermfg=231   ctermbg=241  cterm=bold      guifg=#f8f8f2 guibg=#64645e gui=bold
 hi StatusLineNC              ctermfg=231   ctermbg=241                  guifg=#f8f8f2 guibg=#64645e 
+
 hi IncSearch                 ctermfg=235   ctermbg=186                  guifg=#272822 guibg=#e6db74 
 hi Search                                               cterm=underline                             gui=underline
+
 hi Directory                 ctermfg=141                                guifg=#ae81ff               
 hi Folded                    ctermfg=242   ctermbg=235                  guifg=#75715e guibg=#272822
+hi FoldColumn
 hi SignColumn                              ctermbg=237                                guibg=#3c3d37
 hi Normal                    ctermfg=231   ctermbg=235                  guifg=#f8f8f2 guibg=#272822
 hi Boolean                   ctermfg=141                                guifg=#ae81ff
@@ -110,3 +114,4 @@ hi cssCommonAttr             ctermfg=81                                 guifg=#6
 " Must be at the end, because of ctermbg=234 bug.
 " https://groups.google.com/forum/#!msg/vim_dev/afPqwAFNdrU/nqh6tOM87QUJ
 set background=dark
+

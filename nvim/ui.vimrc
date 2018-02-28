@@ -9,6 +9,7 @@ set hlsearch                   " highlight matches
 
 " Formatting
 set nu                         " turn on line numbering
+set cursorline                 " highlight the current line
 syntax on                      " enable syntax highlighting
 set visualbell                 " visual bell
 set noerrorbells               " no noise
