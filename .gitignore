@@ -5,3 +5,4 @@ atom/.apm
 atom/blob-store
 atom/compile-cache
 atom/.node-gyp
+vim/bundle/
