@@ -1,0 +1,17 @@
+" VIM Plugins that I used to have installed
+
+" git interface
+"Plugin 'tpope/vim-fugitive'
+
+" filesystem plugins
+"Plugin 'scrooloose/nerdtree'  " visually explore filesystem hierarchy
+"Plugin 'jistr/vim-nerdtree-tabs'
+"Plugin 'ctrlpvim/ctrlp.vim'  " fuzzy file paths
+
+" Python
+"Plugin 'scrooloose/syntastic' " conflicts with ALE
+"Plugin 'vim-scripts/Pydiction'
+"Plugin 'vim-scripts/indentpython.vim'
+" python sytax checker
+"Plugin 'nvie/vim-flake8' " superceeded by ALE
+
