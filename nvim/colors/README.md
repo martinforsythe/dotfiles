@@ -1,15 +1,18 @@
-# vim-monokai
+# Monokaim
 
-Monokai color scheme for Vim converted with [coloration](http://coloration.sickill.net) from Textmate theme with the same name.
-
-## Screenshots
-
-![Monokai in Vim](https://cloud.github.com/downloads/sickill/vim-monokai/vim-monokai.png)
-
+Monokim is a vim colorfile based on Marcin Kulik's [vim-monokai](http://github.com/sickill/vim-monokai)
+and Tomas Restrepo's [molokai](http://github.com/tomasr/molokai) which were inspired by the Monokai
+theme for TextMate by Wimer Hazenberg and its darker variant by Hamish Stuart Macpherson.
 
 ## Installation
 
-Put `monokai.vim` file in your `~/.vim/colors/` directory and add the following line to your `~/.vimrc`:
+Put `monokaim.vim` file in your `~/.vim/colors/` (or `~/.config/nvim/colors/`) directory and add the following line to your `~/.vimrc` (or `~/.config/nvim/dein.vimrc`):
 
     syntax enable
-    colorscheme monokai
+    colorscheme monokaim
+
+## Configuration
+
+If you prefer the molokai scheme to match the original monokai background color, put this in your .vimrc file: 
+
+    let g:molokai_original = 1

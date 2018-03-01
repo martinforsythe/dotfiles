@@ -1,5 +1,11 @@
 " Vim color file
+"
+" https://github.com/sickill/vim-monokai
+"
 " Converted from Textmate theme Monokai using Coloration v0.3.2 (http://github.com/sickill/coloration)
+"
+" Copyright (c) 2009-2016 Marcin Kulik
+"
 " Modified by Martin Forsythe Nov.13.2016
 
 set background=dark
