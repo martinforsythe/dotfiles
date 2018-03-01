@@ -16,5 +16,6 @@ alias server="python -m SimpleHTTPServer"
 alias jpn='jupyter notebook'
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 export DOCKER="$HOME/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux"
+alias vim='nvim'
 
 . $HOME/.bash_profile_venv
