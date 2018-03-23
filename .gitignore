@@ -1,3 +1,4 @@
+atom/atom
 atom/storage
 atom/packages
 atom/github.cson
@@ -6,4 +7,5 @@ atom/blob-store
 atom/compile-cache
 atom/.node-gyp
 nvim/dein/
+nvim/.netrwhist
 vim/bundle/
