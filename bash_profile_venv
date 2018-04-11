@@ -1,10 +1,11 @@
 ## VIRTUALENV
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Projects
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 source /usr/local/bin/virtualenvwrapper.sh
+
 ## PYENV
 export PYENV_ROOT="$HOME/.pyenv"
 if [[ -d $PYENV_ROOT ]];
@@ -35,3 +36,4 @@ pyclean () {
 export LDFLAGS="-L/usr/local/opt/readline/lib -L/usr/local/opt/zlib/lib -L/usr/local/opt/openssl/lib"
 export CPPFLAGS="-I/usr/local/opt/readline/include -I/usr/local/opt/zlib/include -I/usr/local/opt/openssl/include"
 export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
+
