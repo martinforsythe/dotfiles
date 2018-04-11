@@ -1,22 +1,35 @@
 ### MATPLOTLIBRC FORMAT
 
 # This is the global matplotlib configuration file stored in
-# HOME/.matplotlib/matplotlibrc 
+# HOME/.matplotlib/matplotlibrc
 #### CONFIGURATION BEGINS HERE
+# The default backend; one of GTK GTKAgg GTKCairo GTK3Agg GTK3Cairo
+# MacOSX Qt4Agg Qt5Agg TkAgg WX WXAgg Agg Cairo GDK PS PDF SVG
+# Template.
+backend      : TkAgg
 
-### LINES See http://matplotlib.sourceforge.net/matplotlib.lines.html 
+# If you are using the Qt4Agg backend, you can choose here
+# to use the PyQt4 bindings or the newer PySide bindings to
+# the underlying Qt4 toolkit.
+#backend.qt4 : PySide        # PyQt4 | PySide
+
+# When running pyplot inside a GUI if the backend choice
+# conflicts, automatically try to find a compatible one
+backend_fallback: True
+
+### LINES See http://matplotlib.sourceforge.net/matplotlib.lines.html
 lines.linewidth   : 2.0     # line width in points
 lines.linestyle   : -       # solid line
 lines.markersize  : 5       # line marker size
 lines.dash_capstyle  : round # cap style of dotted lines
 lines.dash_joinstyle : round # line join style
 
-### FONT see http://matplotlib.sourceforge.net/matplotlib.font_manager.html 
+### FONT see http://matplotlib.sourceforge.net/matplotlib.font_manager.html
 # The font.size property is the default font size for text, given in pts. 12pt is the standard value.
 font.size           : 11.0
 font.family         : sans-serif
 font.style          : normal
-font.weight         : normal 
+font.weight         : normal
 #font.weight defaults to medium
 
 # note that font.size controls default text sizes.  To configure
@@ -28,7 +41,7 @@ font.weight         : normal
 font.serif          : Computer Modern Roman, Times New Roman, Bitstream Vera Serif, New Century Schoolbook, Century Schoolbook L, Utopia, ITC Bookman, Bookman, Nimbus Roman No9 L, Times New Roman, Times, Palatino, Charter, serif
 font.sans-serif     : Computer Modern Sans Serif, Arial, Helvetica, Bitstream Vera Sans, Lucida Grande, Verdana, Geneva, Lucid, Avant Garde, sans-serif
 
-### TEXT See  http://matplotlib.sourceforge.net/matplotlib.text.html 
+### TEXT See  http://matplotlib.sourceforge.net/matplotlib.text.html
 text.color          : black
 
 ### LaTeX customizations. See http://www.scipy.org/Wiki/Cookbook/Matplotlib/UsingTex
@@ -143,6 +156,5 @@ savefig.transparent : True    # figure facecolor transparent when saving
 #savefig.facecolor : white    # figure facecolor when saving
 #savefig.edgecolor : white    # figure edgecolor when saving
 
-# Set the verbose flags.  
+# Set the verbose flags.
 #verbose.level  : helpful      # one of silent, helpful, debug, debug-annoying
-
