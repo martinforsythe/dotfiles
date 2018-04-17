@@ -11,6 +11,7 @@ brew "go"
 brew "graphviz"
 brew "git"
 brew "htop"
+brew "jq"
 brew "llvm"
 brew "lua"
 brew "neovim"
@@ -27,6 +28,7 @@ brew "tmux"
 brew "wget"
 brew "zeromq"
 brew "zlib"
+brew "zsh-completions"
 
 #-----------------------------------------------
 # below shows dependencies included by the above
