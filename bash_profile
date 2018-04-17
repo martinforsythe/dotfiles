@@ -13,6 +13,7 @@ export PATH=$PATH:/usr/local/share/pypy3:/usr/local/share/pypy
 
 ## ALIASES
 alias server="python -m SimpleHTTPServer"
+ssh_port_forward() { ssh "-L$1:localhost:$2 -fN $3"; }
 alias jpn='jupyter notebook'
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 export DOCKER="$HOME/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux"
