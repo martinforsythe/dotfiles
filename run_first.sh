@@ -46,3 +46,5 @@ brew bundle --file=Caskfile
 . pyenv_install.sh
 
 . font_install.sh
+
+. dein_installer.sh ./nvim/dein

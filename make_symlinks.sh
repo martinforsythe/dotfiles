@@ -14,6 +14,7 @@ backup=$HOME/.dotfiles_bak   # old dotfiles backup directory
 # list of files/folders to symlink in $HOME
 files="bash_profile bash_profile_venv global_gitignore gitconfig vimrc vimrc.bundles" #functions
 dotdirs="vim atom"
+confdirs="nvim"
 
 echo "Dotfiles:" $dotfiles
 echo "Dotfiles backup:" $backup
@@ -41,6 +42,13 @@ for dir in $dotdirs; do
     mv $HOME/.$dir $backup
     echo "Creating symlink to $dir in home directory."
     ln -s $dotfiles/$dir $HOME/.$dir
+done
+
+echo "Moving any existing directories from ~/.config to $backup"
+for dir in $confdirs; do
+    mv $HOME/.config/$dir $backup
+    echo "Creating simlink to $dir in ~/.config directory."
+    ln -s $dotfiles/$dir $HOME/.config/$dir
 done
 
 # update Vundle to setup vim
