@@ -17,6 +17,7 @@ cask 'caffeine'
 cask 'lastpass'  # no checksum
 cask 'dropbox'  # no checksum
 cask 'google-chrome'  # no checksum
+cask 'zoomus'
 
 # Codeship
 tap "codeship/taps"
