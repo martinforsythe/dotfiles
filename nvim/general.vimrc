@@ -29,10 +29,16 @@ augroup filetype_python
     " spaces/tabs (ts=tabstop, sw=shiftwidth, sts=softtabstop)
     autocmd FileType python set ts=4 sw=4 sts=4 expandtab
 
+    autocmd FileType python setlocal textwidth=80
+
     " show a ruler at 80 chars
     autocmd FileType python set colorcolumn=80
 
     " keep indentation level from previous line
-    autocmd FileType python set autoindent
+    " autocmd FileType python set autoindent
 
 augroup END
+
+" text wrap at 80 characters for markdown
+au BufRead,BufNewFile *.md setlocal textwidth=80
+au BufRead,BufNewFile *.py setlocal textwidth=80
