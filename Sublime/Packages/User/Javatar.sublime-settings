@@ -7,11 +7,10 @@
 			"update": "131",
 			"version": "1.8.0"
 		},
-		"JDK1.8.0u60":
+		"JDK9.0.1":
 		{
-			"path": "/Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/bin",
-			"update": "60",
-			"version": "1.8.0"
+			"path": "/Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/bin",
+			"version": "9.0.1"
 		},
 		"use": ""
 	},

@@ -10,4 +10,5 @@
         Enable or not whether parsed files will be auto-reloaded on save
     */
     "enable_autoreload": true,    
+    "github_oauth_token": "e68543adaaf29242619861823cfe9b63500d7aff",
 }    
