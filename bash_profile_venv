@@ -6,6 +6,10 @@ export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 source /usr/local/bin/virtualenvwrapper.sh
 
+## PIPENV
+PIPENV_DEFAULT_PYTHON_VERSION=/usr/local/bin/python3
+eval "$(pipenv --completion)"
+
 ## PYENV
 export PYENV_ROOT="$HOME/.pyenv"
 if [[ -d $PYENV_ROOT ]];
