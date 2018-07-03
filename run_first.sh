@@ -33,9 +33,6 @@ cd $DOTFILES
 brew tap homebrew/bundle
 brew update
 
-# brew bundle doesn't allow install options so we install vim manually
-brew install vim --with-override-system-vi --with-python3 --with-luajit
-
 brew bundle --file=Brewfile
 brew bundle --file=Caskfile
 
