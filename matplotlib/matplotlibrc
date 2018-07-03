@@ -67,7 +67,7 @@ mathtext.fallback_to_cm : True  # When True, use symbols from the Computer Moder
 
 ### AXES see http://matplotlib.sourceforge.net/matplotlib.axes.html#Axes
 #axes.hold           : True    # whether to clear the axes by default on
-#axes.facecolor      : white   # axes background color
+axes.facecolor      : white   # axes background color
 axes.edgecolor       : black   # axes edge color
 #axes.linewidth      : 1.0     # edge linewidth
 #axes.grid           : False   # display grid or not
@@ -136,7 +136,7 @@ legend.columnspacing : 0.6  # the border between the axes and legend edge in fra
 figure.figsize    : 3.1641731631382317, 1.9555665611096933    # figure size in inches for 95% single-column width
 figure.dpi        : 300     # figure dots per inch
 figure.autolayout : True
-#figure.facecolor : 0.75    # figure facecolor; 0.75 is scalar gray
+figure.facecolor : white    # figure facecolor; 0.75 is scalar gray
 #figure.edgecolor  : black   # figure edgecolor
 
 # The figure subplot parameters.  All dimensions are fraction of the
