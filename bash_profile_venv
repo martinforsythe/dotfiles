@@ -1,7 +1,7 @@
 ## VIRTUALENV
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Projects
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2
 export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
 source /usr/local/bin/virtualenvwrapper.sh
@@ -32,8 +32,8 @@ gpip3() {
 ## FUNCTION FOR REMOVING PYTHON FILES
 pyclean () {
       find . -type f -name "*.py[co]" -delete
-      find . -type d -name "__pycache__" -delete
-      find . -type d -name ".pytest_cache" -delete
+      find . -type d -name "__pycache__" -exec rm -r {} +;
+      find . -type d -name ".pytest_cache/" -exec rm -r {} +;
 }
 
 ## Compiler flags for pyenv to discover homebrew's zlib, openssl, and readline
@@ -41,3 +41,8 @@ export LDFLAGS="-L/usr/local/opt/readline/lib -L/usr/local/opt/zlib/lib -L/usr/l
 export CPPFLAGS="-I/usr/local/opt/readline/include -I/usr/local/opt/zlib/include -I/usr/local/opt/openssl/include"
 export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
 
+## Compiler flags for openblas to be made available
+# export CXXFLAGS="-mmacosx-version-min=10.13"
+# export LDFLAGS="-L/usr/local/opt/openblas/lib"
+# export CPPFLAGS="-I/usr/local/opt/openblas/include"
+# export FFLAGS="-fPIC"
