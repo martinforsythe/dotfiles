@@ -9,10 +9,9 @@ export DOTFILES=$HOME/dotfiles
 export PATH=/usr/local/manual/bin:$PATH
 export PATH=$PATH:$HOME/gamalon/tycho
 export PATH="$PATH:$HOME/.cargo/bin"
-export PATH=$PATH:/usr/local/share/pypy3:/usr/local/share/pypy
+export PATH=$PATH:/usr/local/share/pypy3
 
 ## ALIASES
-alias server="python -m SimpleHTTPServer"
 ssh_port_forward() { ssh "-L$1:localhost:$2 -fN $3"; }
 alias jpn='jupyter notebook'
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
