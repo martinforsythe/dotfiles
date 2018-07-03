@@ -21,4 +21,3 @@ alias vim='nvim'
 
 . $HOME/.bash_profile_venv
 
-export PATH="$HOME/.cargo/bin:$PATH"
