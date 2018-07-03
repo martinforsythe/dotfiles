@@ -48,3 +48,7 @@ brew bundle --file=Caskfile
 . font_install.sh
 
 . dein_installer.sh ./nvim/dein
+
+# install kr:
+curl https://krypt.co/kr | sh
+
