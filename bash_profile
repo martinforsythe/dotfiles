@@ -20,3 +20,5 @@ export DOCKER="$HOME/Library/Containers/com.docker.docker/Data/com.docker.driver
 alias vim='nvim'
 
 . $HOME/.bash_profile_venv
+
+export PATH="$HOME/.cargo/bin:$PATH"
