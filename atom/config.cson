@@ -38,12 +38,14 @@
     warnOnLargeFileLimit: 50
   editor:
     fontFamily: "Inconsolata"
-    fontSize: 16
+    fontSize: 22
     tabLength: 4
   "exception-reporting":
     userId: "e067d5f5-f3dd-52c3-9962-3669ddb7504f"
   "git-diff":
     showIconsInEditorGutter: true
+  "ide-python":
+    python: "python3"
   linter:
     errorPanelHeight: 22
     gutterPosition: "Left"
@@ -65,6 +67,7 @@
   script:
     ignoreSelection: true
     stopOnRerun: true
+  teletype: {}
   "tree-view":
     hideVcsIgnoredFiles: true
   welcome:
