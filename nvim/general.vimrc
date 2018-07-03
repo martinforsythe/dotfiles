@@ -19,6 +19,14 @@ augroup filetype_javascript
 
 augroup END
 
+" tabstop:     width of tab character
+" shiftwidth:  ammount of whitespace to add in normal mode
+" softtabstop: how far the cursor moves with the tab keystroke (enables untabbing a line)
+" expandtab:   use spaces instead of tabs
+set tabstop     =4
+set shiftwidth  =4
+set softtabstop =4
+set expandtab
 
 augroup filetype_python
     autocmd!
