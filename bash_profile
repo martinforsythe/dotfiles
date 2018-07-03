@@ -20,3 +20,8 @@ alias vim='nvim'
 
 . $HOME/.bash_profile_venv
 
+
+# ## Compiler flags for openblas to be made available
+# export LDFLAGS="-L/usr/local/opt/openblas/lib"
+# export CPPFLAGS="-I/usr/local/opt/openblas/include"
+# export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/openblas/lib/pkgconfig"
