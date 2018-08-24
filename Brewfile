@@ -1,6 +1,3 @@
-tap "homebrew/versions"
-tap "homebrew/science"
-
 brew "awscli"
 brew "bash-completion"
 brew "cmake"
