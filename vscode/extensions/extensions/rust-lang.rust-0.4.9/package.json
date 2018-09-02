@@ -1,0 +1,379 @@
+{
+	"name": "rust",
+	"displayName": "Rust (rls)",
+	"description": "Rust language support - code completion, Intellisense, refactoring, reformatting, errors, snippets. A client for the Rust Language Server, built by the RLS team.",
+	"version": "0.4.9",
+	"publisher": "rust-lang",
+	"icon": "rust-icon.png",
+	"galleryBanner": {
+		"color": "#336356",
+		"theme": "dark"
+	},
+	"engines": {
+		"vscode": "^1.24.0"
+	},
+	"license": "(MIT OR Apache-2.0)",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/rust-lang-nursery/rls-vscode"
+	},
+	"bugs": {
+		"url": "https://github.com/rust-lang-nursery/rls-vscode/issues"
+	},
+	"categories": [
+		"Programming Languages",
+		"Linters",
+		"Snippets",
+		"Formatters",
+		"Other"
+	],
+	"keywords": [
+		"rust",
+		"rust-lang",
+		"rls",
+		"multi-root ready"
+	],
+	"preview": true,
+	"activationEvents": [
+		"onLanguage:rust",
+		"workspaceContains:Cargo.toml"
+	],
+	"main": "./out/src/extension",
+	"scripts": {
+		"vscode:prepublish": "npm run check:version && npm run lint && npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"lint": "tslint --config ./tslint.json './src/**/*.ts'",
+		"check:version": "node cmd/check-version.js",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"installDevExtension": "npm install && ./node_modules/.bin/vsce package -o ./out/rls-vscode-dev.vsix && code --install-extension ./out/rls-vscode-dev.vsix"
+	},
+	"dependencies": {
+		"vscode-languageclient": "^4.3.0"
+	},
+	"devDependencies": {
+		"vsce": "^1.42.0",
+		"@types/mocha": "^2.2.43",
+		"@types/node": "^7.0.56",
+		"mocha": "^3.5.3",
+		"tslint": "^5.7.0",
+		"typescript": "^2.5.2",
+		"vscode": "^1.1.5"
+	},
+	"contributes": {
+		"languages": [
+			{
+				"id": "rust",
+				"extensions": [
+					".rs"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"snippets": [
+			{
+				"language": "rust",
+				"path": "./snippets/rust.json"
+			}
+		],
+		"commands": [
+			{
+				"command": "rls.findImpls",
+				"title": "Find Implementations",
+				"description": "Show impl blocks for trait, struct, or enum",
+				"category": "Rust"
+			},
+			{
+				"command": "rls.update",
+				"title": "Update the RLS",
+				"description": "Use Rustup to update Rust, the RLS, and required data",
+				"category": "Rust"
+			},
+			{
+				"command": "rls.restart",
+				"title": "Restart the RLS",
+				"description": "Sometimes, it's just best to try turning it off and on again",
+				"category": "Rust"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"command": "rls.findImpls",
+					"when": "editorLangId == rust && editorHasReferenceProvider",
+					"group": "navigation@4"
+				}
+			]
+		},
+		"taskDefinitions": [
+			{
+				"type": "cargo",
+				"required": [
+					"command"
+				],
+				"properties": {
+					"label": {
+						"type": "string"
+					},
+					"command": {
+						"type": "string"
+					},
+					"args": {
+						"type": "array"
+					},
+					"env": {
+						"type": "object"
+					}
+				}
+			}
+		],
+		"problemMatchers": [
+			{
+				"name": "rustc",
+				"owner": "rust",
+				"fileLocation": [
+					"relative",
+					"${workspaceRoot}"
+				],
+				"pattern": [
+					{
+						"regexp": "^(warning|warn|error)(\\[(.*)\\])?: (.*)$",
+						"severity": 1,
+						"message": 4,
+						"code": 3
+					},
+					{
+						"regexp": "^([\\s->=]*(.*):(\\d*):(\\d*)|.*)$",
+						"file": 2,
+						"line": 3,
+						"column": 4
+					},
+					{
+						"regexp": "^.*$"
+					},
+					{
+						"regexp": "^([\\s->=]*(.*):(\\d*):(\\d*)|.*)$",
+						"file": 2,
+						"line": 3,
+						"column": 4
+					}
+				]
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Rust configuration",
+			"properties": {
+				"rust-client.logToFile": {
+					"type": "boolean",
+					"default": false,
+					"description": "When set to true, RLS stderr is logged to a file at workspace root level. Requires reloading extension after change."
+				},
+				"rust-client.rustupPath": {
+					"type": "string",
+					"default": "rustup",
+					"description": "Path to rustup executable"
+				},
+				"rust-client.rlsPath": {
+					"type": [
+						"string",
+						"null"
+					],
+					"default": null,
+					"description": "Path to rls executable (only required for rls developers)"
+				},
+				"rust-client.revealOutputChannelOn": {
+					"type": "string",
+					"enum": [
+						"info",
+						"warn",
+						"error",
+						"never"
+					],
+					"default": "never",
+					"description": "Specifies message severity on which the output channel will be revealed. Requires reloading extension after change."
+				},
+				"rust-client.updateOnStartup": {
+					"type": "boolean",
+					"default": false,
+					"description": "Update the RLS whenever the extension starts up."
+				},
+				"rust-client.channel": {
+					"type": [
+						"string",
+						null
+					],
+					"enum": [
+						"stable",
+						"beta",
+						"nightly"
+					],
+					"default": null,
+					"description": "Rust channel to install RLS from. By default it will use the same channel as your currently open project"
+				},
+				"rust-client.rls-name": {
+					"type": "string",
+					"default": "rls-preview",
+					"description": "Name of the RLS rustup component."
+				},
+				"rust.sysroot": {
+					"type": [
+						"string",
+						"null"
+					],
+					"default": null,
+					"description": "--sysroot",
+					"scope": "resource"
+				},
+				"rust.target": {
+					"type": [
+						"string",
+						"null"
+					],
+					"default": null,
+					"description": "--target",
+					"scope": "resource"
+				},
+				"rust.rustflags": {
+					"type": [
+						"string",
+						"null"
+					],
+					"default": null,
+					"description": "Flags added to RUSTFLAGS.",
+					"scope": "resource"
+				},
+				"rust.clear_env_rust_log": {
+					"type": "boolean",
+					"default": true,
+					"description": "Clear the RUST_LOG environment variable before running rustc or cargo.",
+					"scope": "resource"
+				},
+				"rust.build_lib": {
+					"type": [
+						"boolean",
+						"null"
+					],
+					"default": null,
+					"description": "Specify to run analysis as if running `cargo check --lib`. Use `null` to auto-detect. (unstable)",
+					"scope": "resource"
+				},
+				"rust.build_bin": {
+					"type": [
+						"string",
+						"null"
+					],
+					"default": null,
+					"description": "Specify to run analysis as if running `cargo check --bin <name>`. Use `null` to auto-detect. (unstable)",
+					"scope": "resource"
+				},
+				"rust.cfg_test": {
+					"type": "boolean",
+					"default": false,
+					"description": "Build cfg(test) code. (unstable)",
+					"scope": "resource"
+				},
+				"rust.unstable_features": {
+					"type": "boolean",
+					"default": false,
+					"description": "Enable unstable features.",
+					"scope": "resource"
+				},
+				"rust.wait_to_build": {
+					"type": "number",
+					"default": 1500,
+					"description": "Time in milliseconds between receiving a change notification and starting build.",
+					"scope": "resource"
+				},
+				"rust.show_warnings": {
+					"type": "boolean",
+					"default": true,
+					"description": "Show warnings.",
+					"scope": "resource"
+				},
+				"rust.use_crate_blacklist": {
+					"type": "boolean",
+					"default": true,
+					"description": "Don't index crates on the crate blacklist.",
+					"scope": "resource"
+				},
+				"rust.build_on_save": {
+					"type": "boolean",
+					"default": false,
+					"description": "Only index the project when a file is saved and not on change.",
+					"scope": "resource"
+				},
+				"rust.features": {
+					"type": "array",
+					"default": [],
+					"description": "A list of Cargo features to enable.",
+					"scope": "resource"
+				},
+				"rust.all_features": {
+					"type": "boolean",
+					"default": false,
+					"description": "Enable all Cargo features.",
+					"scope": "resource"
+				},
+				"rust.no_default_features": {
+					"type": "boolean",
+					"default": false,
+					"description": "Do not enable default Cargo features.",
+					"scope": "resource"
+				},
+				"rust.goto_def_racer_fallback": {
+					"type": "boolean",
+					"default": false,
+					"description": "Use racer as a fallback for goto def.",
+					"scope": "resource"
+				},
+				"rust.racer_completion": {
+					"type": "boolean",
+					"default": true,
+					"description": "Enables code completion using racer.",
+					"scope": "resource"
+				},
+				"rust.clippy_preference": {
+					"type": "string",
+					"enum": [
+						"on",
+						"opt-in",
+						"off"
+					],
+					"default": "opt-in",
+					"description": "Controls eagerness of clippy diagnostics.",
+					"scope": "resource"
+				},
+				"rust.jobs": {
+					"type": [
+						"number",
+						"null"
+					],
+					"default": null,
+					"description": "Number of Cargo jobs to be run in parallel.",
+					"scope": "resource"
+				},
+				"rust.all_targets": {
+					"type": "boolean",
+					"default": true,
+					"description": "Checks the project as if you were running cargo check --all-targets (I.e., check all targets and integration tests too).",
+					"scope": "resource"
+				},
+				"rust.target_dir": {
+					"type": [
+						"string",
+						"null"
+					],
+					"default": null,
+					"description": "When specified, it places the generated analysis files at the specified target directory. By default it is placed target/rls directory.",
+					"scope": "resource"
+				}
+			}
+		}
+	},
+	"__metadata": {
+		"id": "570e6089-b871-41df-9cf4-a723cb34ef01",
+		"publisherId": "cb14a7a7-a188-40bd-a953-e0a20757c5dd",
+		"publisherDisplayName": "rust-lang"
+	}
+}

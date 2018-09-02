@@ -1,0 +1,299 @@
+{
+	"name": "restructuredtext",
+	"displayName": "reStructuredText",
+	"description": "reStructuredText language support (RST/ReST linter, preview, IntelliSense and more)",
+	"version": "65.0.0",
+	"publisher": "lextudio",
+	"engines": {
+		"vscode": "^1.15.0"
+	},
+	"dependencies": {
+		"file-url": "^1.0.1",
+		"http-proxy-agent": "^2.0.0",
+		"https-proxy-agent": "^2.1.1",
+		"tmp": "0.0.33",
+		"vsce": "^1.35.0",
+		"vscode": "^1.1.10",
+		"vscode-languageclient": "^3.5.0"
+	},
+	"devDependencies": {
+		"@types/mocha": "^2.2.43",
+		"@types/node": "^7.0.5",
+		"mocha": "^4.0.1",
+		"ts-node": "^3.3.0",
+		"typescript": "^2.1.5",
+		"vscode": "^1.1.10"
+	},
+	"runtimeDependencies": [
+		{
+			"description": "reStructuredText Language Server for Windows (x86)",
+			"url": "https://github.com/lextm/restructuredtext-antlr/releases/download/v0.9/win32_x86.zip",
+			"fallbackUrl": "https://github.com/lextm/restructuredtext-antlr/releases/download/v0.9/win32_x86.zip",
+			"installPath": ".rst",
+			"platforms": [
+				"win32"
+			],
+			"architectures": [
+				"x86"
+			],
+			"installTestPath": "./.rst/Server.exe"
+		},
+		{
+			"description": "reStructuredText Language Server for Windows (x64)",
+			"url": "https://github.com/lextm/restructuredtext-antlr/releases/download/v0.9/win32_x64.zip",
+			"fallbackUrl": "https://github.com/lextm/restructuredtext-antlr/releases/download/v0.9/win32_x64.zip",
+			"installPath": ".rst",
+			"platforms": [
+				"win32"
+			],
+			"architectures": [
+				"x86_64"
+			],
+			"installTestPath": "./.rst/Server.exe"
+		},
+		{
+			"description": "reStructuredText Language Server for macOS (x64)",
+			"url": "https://github.com/lextm/restructuredtext-antlr/releases/download/v0.9/darwin_x64.zip",
+			"fallbackUrl": "https://github.com/lextm/restructuredtext-antlr/releases/download/v0.9/darwin_x64.zip",
+			"installPath": ".rst",
+			"platforms": [
+				"darwin"
+			],
+			"binaries": [
+				"./Server"
+			],
+			"installTestPath": "./.rst/Server"
+		},
+		{
+			"description": "reStructuredText Language Server for Linux (x64)",
+			"url": "https://github.com/lextm/restructuredtext-antlr/releases/download/v0.9/linux_x64.zip",
+			"fallbackUrl": "https://github.com/lextm/restructuredtext-antlr/releases/download/v0.9/linux_x64.zip",
+			"installPath": ".rst",
+			"platforms": [
+				"linux"
+			],
+			"architectures": [
+				"x86_64"
+			],
+			"binaries": [
+				"./Server"
+			],
+			"installTestPath": "./.rst/Server"
+		}
+	],
+	"license": "SEE LICENSE IN LICENSE.txt",
+	"homepage": "https://www.restructuredtext.net",
+	"categories": [
+		"Languages",
+		"Snippets",
+		"Linters"
+	],
+	"icon": "images/Document_icon.png",
+	"galleryBanner": {
+		"color": "#ACD1EC",
+		"theme": "light"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/vscode-restructuredtext/vscode-restructuredtext.git"
+	},
+	"bugs": "https://github.com/vscode-restructuredtext/vscode-restructuredtext/issues",
+	"main": "./out/src/extension",
+	"activationEvents": [
+		"onCommand:restructuredtext.showPreview",
+		"onCommand:restructuredtext.showPreviewToSide",
+		"onCommand:restructuredtext.showSource",
+		"onCommand:restructuredtext.features.underline.underline",
+		"onLanguage:restructuredtext"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "restructuredtext",
+				"aliases": [
+					"reStructuredText",
+					"restructuredtext",
+					"RST",
+					"ReST",
+					"reST"
+				],
+				"extensions": [
+					".rst",
+					".rest"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "restructuredtext",
+				"scopeName": "text.restructuredtext",
+				"path": "./syntaxes/restructuredtext.tmLanguage"
+			}
+		],
+		"snippets": [
+			{
+				"language": "restructuredtext",
+				"path": "./snippets/snippets.json"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "restructuredtext.showPreview",
+				"key": "shift+ctrl+r",
+				"mac": "shift+cmd+r",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "restructuredtext.showPreviewToSide",
+				"key": "ctrl+k ctrl+r",
+				"mac": "cmd+k cmd+r",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "restructuredtext.features.underline.underline",
+				"key": "ctrl+k ctrl+=",
+				"mac": "cmd+k cmd+=",
+				"when": "editorTextFocus"
+			}
+		],
+		"commands": [
+			{
+				"command": "restructuredtext.showPreview",
+				"title": "Toggle Preview",
+				"category": "reStructuredText",
+				"icon": {
+					"light": "./media/Preview.svg",
+					"dark": "./media/Preview_inverse.svg"
+				}
+			},
+			{
+				"command": "restructuredtext.showPreviewToSide",
+				"title": "Open Preview to the Side",
+				"category": "reStructuredText",
+				"icon": {
+					"light": "./media/PreviewOnRightPane_16x.svg",
+					"dark": "./media/PreviewOnRightPane_16x_dark.svg"
+				}
+			},
+			{
+				"command": "restructuredtext.showSource",
+				"title": "Show Source",
+				"category": "reStructuredText",
+				"icon": {
+					"light": "./media/ViewSource.svg",
+					"dark": "./media/ViewSource_inverse.svg"
+				}
+			}
+		],
+		"menus": {
+			"editor/title": [
+				{
+					"when": "resourceLangId == restructuredtext",
+					"command": "restructuredtext.showPreviewToSide",
+					"alt": "restructuredtext.showPreview",
+					"group": "navigation"
+				},
+				{
+					"when": "resourceScheme == restructuredtext",
+					"command": "restructuredtext.showSource",
+					"group": "navigation"
+				}
+			],
+			"explorer/context": [
+				{
+					"when": "resourceLangId == restructuredtext",
+					"command": "restructuredtext.showPreview",
+					"group": "navigation"
+				}
+			]
+		},
+		"configuration": {
+			"type": "object",
+			"title": "reStructuredText Configuration",
+			"properties": {
+				"restructuredtext.workspaceRoot": {
+					"type": "string",
+					"default": "${workspaceRoot}",
+					"description": "Write-only. Don't modify the value. This is a reserved setting for IntelliSense."
+				},
+				"restructuredtext.builtDocumentationPath": {
+					"type": "string",
+					"default": "${workspaceRoot}/_build/html",
+					"description": "HTML page output folder relative to workspace root. This is an absolute path, and you can use ${workspaceRoot} to represent workspace root folder."
+				},
+				"restructuredtext.confPath": {
+					"type": "string",
+					"default": "${workspaceRoot}",
+					"description": "The folder that contains conf.py relative to workspace root. This is an absolute path, and you can use ${workspaceRoot} to represent workspace root folder."
+				},
+				"restructuredtext.updateOnTextChanged": {
+					"type": "string",
+					"default": "true",
+					"description": "Flag to control whether text changed event triggers preview update."
+				},
+				"restructuredtext.updateDelay": {
+					"type": "number",
+					"default": "300",
+					"description": "Flag to control after how long a changed event triggers preview update."
+				},
+				"restructuredtext.sphinxBuildPath": {
+					"type": "string",
+					"default": null,
+					"description": "The full path of sphinx-build utility. This is an absolute path, and you can use ${workspaceRoot} to represent workspace root folder."
+				},
+				"restructuredtext.linter.executablePath": {
+					"type": "string",
+					"default": null,
+					"description": "Points to the doc8 exectuable."
+				},
+				"restructuredtext.linter.run": {
+					"type": "string",
+					"enum": [
+						"onSave",
+						"onType",
+						"off"
+					],
+					"default": "onType",
+					"description": "Whether the linter is run on save or on type or disabled."
+				},
+				"restructuredtext.linter.extraArgs": {
+					"type": "array",
+					"default": [],
+					"description": "Extra arguments to doc8."
+				},
+				"restructuredtext.languageServer.disabled": {
+					"type": "boolean",
+					"default": true,
+					"description": "Flag to disable language server based IntelliSense if critical issues happen."
+				},
+				"restructuredtext.languageServer.maxNumberOfProblems": {
+					"type": "number",
+					"default": 100,
+					"description": "Controls the maximum number of problems produced by the server."
+				},
+				"restructuredtext.languageServer.trace.server": {
+					"type": "string",
+					"enum": [
+						"off",
+						"messages",
+						"verbose"
+					],
+					"default": "off",
+					"description": "Traces the communication between VSCode and the server."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "tsc -p ./",
+		"compile": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"vstest": "node ./node_modules/vscode/bin/test"
+	},
+	"__metadata": {
+		"id": "a5a4d637-aa11-4bd1-b404-9f10390f8d4b",
+		"publisherId": "4997bcf8-8791-4e20-b07f-68f1d8465c38",
+		"publisherDisplayName": "LeXtudio"
+	}
+}
