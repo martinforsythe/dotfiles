@@ -8,18 +8,19 @@ cask 'atom'
 cask 'docker'
 cask 'gimp'
 cask 'inkscape'
-cask 'slack'
+# cask 'slack'
 cask 'gitup'
 cask 'mactex'
 cask 'adobe-acrobat-reader'
-cask 'java'
+# cask 'java'
 cask 'caffeine'
 cask 'lastpass'  # no checksum
 cask 'dropbox'  # no checksum
 cask 'google-chrome'  # no checksum
-cask 'zoomus'
+# cask 'zoomus'
 cask 'visual-studio-code'
+cask 'firefox'
 
-# Codeship
-tap "codeship/taps"
-cask "codeship/taps/jet"
+# # Codeship
+# tap "codeship/taps"
+# cask "codeship/taps/jet"
