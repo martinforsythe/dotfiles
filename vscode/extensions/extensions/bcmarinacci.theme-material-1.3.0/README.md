@@ -1,1 +1,0 @@
-A [material design](https://material.google.com) theme.
