@@ -25,3 +25,14 @@ alias vim='nvim'
 # export LDFLAGS="-L/usr/local/opt/openblas/lib"
 # export CPPFLAGS="-I/usr/local/opt/openblas/include"
 # export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/openblas/lib/pkgconfig"
+## To use the bundled libc++ please add the following LDFLAGS:
+## LLVM
+#  LDFLAGS="-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib"
+
+## GO:
+# A valid GOPATH is required to use the `go get` command.
+# If $GOPATH is not specified, $HOME/go will be used by default:
+#  https://golang.org/doc/code.html#GOPATH
+#
+# You may wish to add the GOROOT-based install location to your PATH:
+#  export PATH=$PATH:/usr/local/opt/go/libexec/bin
