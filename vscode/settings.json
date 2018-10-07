@@ -1,0 +1,41 @@
+{
+    // [Read more](https://code.visualstudio.com/docs/getstarted/theme-color-reference).
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#013b3f",
+        "statusBar.debuggingBackground": "#061439",
+        "statusBar.noFolderBackground": "#013034",
+    },
+
+    // Controls the visibility of the Twitter feedback (smiley) in the 
+    // status bar at the bottom of the workbench.
+    "workbench.statusBar.feedback.visible": false,
+
+    "workbench.startupEditor": "newUntitledFile",
+
+    // Controls the font family.
+    "editor.fontFamily": "'Inconsolata for Powerline Nerd Font Complete', Menlo, Monaco, 'Courier New', monospace",
+    "editor.cursorStyle": "underline",
+
+    // Render vertical rulers after a certain number of monospace
+    // characters. Use multiple values for multiple rulers. No rulers
+    // are drawn if array is empty.
+    "editor.rulers": [
+        80,
+        100
+    ],
+
+    // Modifier to be used to add multiple cursors with the mouse.
+    // [Read more](https://code.visualstudio.com/docs/editor/codebasics#_multicursor-modifier).
+    //  - ctrlCmd: Maps to `Command` on macOS.
+    //  - alt: Maps to `Option` on macOS.
+    "editor.multiCursorModifier": "alt",
+
+    // Glob patterns for excluding files and folders.
+    // [Read more](https://code.visualstudio.com/docs/editor/codebasics#_advanced-search-options).
+    "files.exclude": {
+        "**/.ipynb_checkpoints": true,
+    },
+    
+    "zenMode.restore": true,
+    "window.restoreWindows": "all"
+}
