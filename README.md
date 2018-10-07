@@ -24,4 +24,13 @@ The following scripts are more optional:
   are likely to get out of date as time goes on.
 - setup_osx.sh is largely untested because I have not configured a new
   laptop from scratch since it was developed.
-  - Many of the commands are not valid any more under macOS High Sierra
+- Many of the commands are not valid any more under macOS High Sierra
+
+- Extension management for text editors is still a work in progress. See:
+  https://pawelgrzybek.com/sync-vscode-settings-and-snippets-via-dotfiles-on-github
+  https://stackoverflow.com/questions/35773299/how-can-you-export-vs-code-extension-list
+
+  For VSCode:
+
+  	`code --list-extensions | xargs -L 1 echo code --install-extension`
+
