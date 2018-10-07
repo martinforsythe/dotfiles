@@ -17,14 +17,14 @@ not_contains() {
     fi
 }
 
-# install Python 2.7.14 if it is not already installed
-if not_contains "$pyenv_versions" "2.7.14"; then
-	echo "Python 2.7.14 not installed"
-	pyenv install 2.7.14
+# install Python 2.7.15 if it is not already installed
+if not_contains "$pyenv_versions" "2.7.15"; then
+	echo "Python 2.7.15 not installed"
+	pyenv install 2.7.15
 fi
 
-# install Python 3.6.4 if it is not already installed
-if not_contains "$pyenv_versions" "3.6.4"; then
-	echo "Python 3.6.4 not installed"
-	pyenv install 3.6.4
+# install Python 3.6.6 if it is not already installed
+if not_contains "$pyenv_versions" "3.6.6"; then
+	echo "Python 3.6.6 not installed"
+	pyenv install 3.6.6
 fi
