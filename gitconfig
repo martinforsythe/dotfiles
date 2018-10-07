@@ -3,15 +3,12 @@
 	smudge = git-lfs smudge %f
 	required = true
 [user]
-	name = mbloodforsythe
+	name = martinforsythe
 	email = martin.forsythe@alumni.harvard.edu
 [push]
 	default = simple
 [alias]
   pr = "!f() { git fetch origin pull/$1/head:pr-$1 && git checkout pr-$1; }; f"
-
 [core]
 	editor = /usr/local/bin/nvim
 	excludesfile = ~/.global_gitignore
-[gpg]
-	program = /usr/local/bin/krgpg
