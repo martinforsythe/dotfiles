@@ -24,3 +24,4 @@ The following scripts are more optional:
   are likely to get out of date as time goes on.
 - setup_osx.sh is largely untested because I have not configured a new
   laptop from scratch since it was developed.
+  - Many of the commands are not valid any more under macOS High Sierra
