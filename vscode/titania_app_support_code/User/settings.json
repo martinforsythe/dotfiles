@@ -1,0 +1,79 @@
+// Place your settings in this file to overwrite the default settings
+{
+// Editor
+
+    // Controls the font family.
+    "editor.fontFamily":"Inconsolata, Consolas, Menlo, Monaco, monospace",
+
+    // Columns at which to show vertical rulers
+    "editor.rulers": [79, 100],
+
+    // Controls whether the editor should render control characters
+    "editor.renderControlCharacters": false,
+
+    // Controls the font size in pixels.
+    "editor.fontSize": 14,
+
+    // Modifier to add multiple cursors with the mouse.
+    "editor.multiCursorModifier": "alt",
+
+    // Controls how lines should wrap.
+    "editor.wordWrap": "on",
+
+    // Controls if the editor should automatically format the pasted content.
+    "editor.formatOnPaste": true,
+
+    // The modifier to be used to add multiple cursors with the mouse. `ctrlCmd` maps to `Command` on macOS.
+    "editor.multiCursorModifier": "ctrlCmd",
+
+    // Should the editor auto close brackets
+    "editor.autoClosingBrackets": true,
+
+    // Python path
+    "python.pythonPath":"~/.virtualenvs/py35/bin/python",
+
+    // Hide the stupid Twitter feedback smiley
+    "workbench.statusBar.feedback.visible": false,
+
+  // Allow VSCodeVim to change status bar color based on mode
+  "vim.statusBarColorControl": true,
+
+// UI
+    "workbench.colorTheme": "Monokai Dimmed",
+    "workbench.iconTheme": "eq-material-theme-icons-ocean",
+
+// Files
+
+    // Auto save.
+    "files.autoSave": "onFocusChange",
+
+    // Configure glob patterns for excluding files and folders.
+    "files.exclude": {
+        "**/main":true,  // for compiled rust "main"
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/**.ipynb": true,
+        "**/.ipynb_checkpoints": true,
+        "**/__pycache__": true,
+        "**/.pytest_cache": true,
+        "**/**.pyc": true,
+    },
+
+    // The default end of line character.
+    "files.eol": "\n",
+
+    // When enabled, will trim trailing whitespace when you save a file.
+    "files.trimTrailingWhitespace": true,
+
+// Spying
+    // Enable usage data and errors to be sent to Microsoft.
+    "telemetry.enableTelemetry": false,
+    "editor.minimap.enabled": false,
+    "materialTheme.fixIconsRunning": false,
+    "git.autofetch": true,
+    "workbench.statusBar.visible": false,
+    "workbench.activityBar.visible": false,
+}

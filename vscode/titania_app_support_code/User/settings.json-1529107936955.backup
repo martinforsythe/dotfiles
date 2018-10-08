@@ -1,0 +1,31 @@
+// Place your settings in this file to overwrite the default settings
+{
+// Editor
+
+    // Controls the font family.
+    "editor.fontFamily":"Inconsolata, Consolas"
+
+    // Columns at which to show vertical rulers
+    "editor.rulers": [80,100],
+    "python.pythonPath":"~/.virtualenvs/py27/bin/python"
+
+// Files
+
+    // Configure glob patterns for excluding files and folders.
+    "files.exclude": {
+        "**/**.ipynb": true,
+        "**/__pycache__": true,
+        "**/**.pyc": true,
+        "**/.ipynb_checkpoints": true,
+    },
+
+    // The default end of line character.
+    "files.eol": "\n",
+
+    // When enabled, will trim trailing whitespace when you save a file.
+    "files.trimTrailingWhitespace": true,
+
+// Spying
+    // Enable usage data and errors to be sent to Microsoft.
+    "telemetry.enableTelemetry": false,
+}
