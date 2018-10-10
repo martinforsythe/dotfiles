@@ -81,7 +81,7 @@ axes.formatter.limits : -7, 7 # use scientific notation if log10
                                # first or larger than the second
 
 ## COLORS
-axes.prop_cycle    : ( cycler('color', ['3778bf','feb308','77ab56','825f87','a51c30','262626','808080']*3) + cycler('linestyle', ['-']*7+[':']*7+['--']*7)  ) # color cycle for plot lines
+# axes.prop_cycle    : ( cycler('color', ['3778bf','feb308','77ab56','825f87','a51c30','262626','808080']*3) + cycler('linestyle', ['-']*7+[':']*7+['--']*7)  ) # color cycle for plot lines
 # axes.prop_cycle    : cycler('color', ['294a72','c69835','7f1d32','2e6a43','1d1d1d'])   # alt color cycle for plot lines
 
 ### TICKS see http://matplotlib.sourceforge.net/matplotlib.axis.html#Ticks
