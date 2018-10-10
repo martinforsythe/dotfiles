@@ -11,9 +11,10 @@
 
 dotfiles=$HOME/dotfiles     # dotfiles directory
 backup=$HOME/.dotfiles_bak   # old dotfiles backup directory
+
 # list of files/folders to symlink in $HOME
-files="bash_profile bash_profile_venv global_gitignore gitconfig vimrc vimrc.bundles" #functions
-dotdirs="vim atom"
+files="bash_profile bash_profile_venv global_gitignore" # gitconfig vimrc vimrc.bundles" #functions
+dotdirs="atom vscode"
 confdirs="nvim"
 
 echo "Dotfiles:" $dotfiles
@@ -52,5 +53,5 @@ for dir in $confdirs; do
 done
 
 # update Vundle to setup vim
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+# git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
