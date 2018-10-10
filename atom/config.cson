@@ -37,8 +37,7 @@
     ]
     warnOnLargeFileLimit: 50
   editor:
-    fontFamily: "Inconsolata"
-    fontSize: 22
+    fontSize: 11
     tabLength: 4
   "exception-reporting":
     userId: "e067d5f5-f3dd-52c3-9962-3669ddb7504f"
