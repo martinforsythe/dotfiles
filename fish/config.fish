@@ -31,6 +31,4 @@ alias gb 'git branch --list'
 
 # PATH
 set PATH /usr/local/bin /usr/local/manual/bin $PATH
-set PATH $PATH $HOME/gamalon/tycho
-set PATH $PATH /usr/local/share/pypy3 /usr/local/share/pypy
 
