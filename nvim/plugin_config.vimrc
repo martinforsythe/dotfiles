@@ -5,8 +5,8 @@
 "------------------------------------------------------
 
 " which pythons should neovim use
-let g:python2_host_prog = expand('~/.virtualenvs/neovim2/bin/python')
-let g:python3_host_prog = expand('~/.virtualenvs/neovim3/bin/python')
+" let g:python2_host_prog = expand('~/.virtualenvs/neovim2715/bin/python')
+let g:python3_host_prog = expand('~/.virtualenvs/neovim366/bin/python')
 
 "---------------------------------------------
 "                SimpylFold
@@ -70,10 +70,10 @@ let g:deoplete#sources#jedi#show_docstring = 1
 " For confuguration instructions see:
 " https://github.com/sebastianmarkow/deoplete-rust
 "---------------------------------------------
-let g:deoplete#sources#rust#racer_binary='~/.cargo/bin/racer'           " path to racer
-let g:deoplete#sources#rust#rust_source_path='~/external_code/rust/src' " path to rust source
+" let g:deoplete#sources#rust#racer_binary='~/.cargo/bin/racer'           " path to racer
+" let g:deoplete#sources#rust#rust_source_path='~/external_code/rust/src' " path to rust source
 " disable default gd and K keymappings:
-let g:deoplete#sources#rust#disable_keymap=1
+" let g:deoplete#sources#rust#disable_keymap=1
 " nmap <buffer> gd <plug>DeopleteRustGoToDefinitionDefault
 " nmap <buffer> K  <plug>DeopleteRustShowDocumentation
 
@@ -90,22 +90,19 @@ let g:deoplete#sources#rust#disable_keymap=1
 " flake8 checks pep8, pyflakes, and circular complexity so it is enough
 let b:ale_linters = {
 \   'python': ['flake8'],
-\   'javascript': ['eslint'],
 \}
 
 " Specify which tools ALE should use to fix linting errors
 let g:ale_fixers = {
-\   'javascript': ['eslint'],
+\   'python': [
+\        'trim_whitespace',
+\        'remove_trailing_lines',
+\        'autopep8',
+\        'isort',
+\        'add_blank_lines_for_python_control_statements',
+\   ],
 \}
 
-"\   'python': [
-"\        'trim_whitespace',
-"\        'remove_trailing_lines',
-"\        'autopep8',
-"\        'isort', 
-"\        'add_blank_lines_for_python_control_statements',
-"\   ],
-"
 " Do not lint or fix minified js and css files.
 let g:ale_pattern_options = {
 \   '\.min\.js$': {'ale_linters': [], 'ale_fixers': []},
