@@ -53,10 +53,22 @@ if dein#load_state(expand('~/.config/nvim/dein'))
   " not sure that I like SimplyFold
   "call dein#add('tmhedberg/SimpylFold', {'on_i': 1, 'on_ft': 'python'}) " code folding
 
+  " C/C++ plugins
+  cal dein#add('zchee/deoplete-clang', {
+    \ 'on_ft': ['c', 'cpp', 'objc', 'objcpp'],
+    \ })
+  call dein#add('autozimu/LanguageClient-neovim', {
+    \ 'rev': 'next',
+    \ 'build': 'bash install.sh',
+    \ })
+
   " rust only plugins
   call dein#add('racer-rust/vim-racer', {'on_ft': 'rust'})
   call dein#add('rust-lang/rust.vim', {'on_ft': 'rust'})
-  call dein#add('sebastianmarkow/deoplete-rust', {'on_i': 1, 'on_ft': 'rust'})
+  call dein#add('sebastianmarkow/deoplete-rust', {
+    \ 'on_i': 1,
+    \ 'on_ft': 'rust',
+    \ })
 
   " HTML only plugins
   call dein#add('Valloric/MatchTagAlways', {'on_ft': 'html'})
