@@ -22,7 +22,7 @@ alias vim='nvim'
 # ## Compiler flags for openblas to be made available
 # export LDFLAGS="-L/usr/local/opt/openblas/lib"
 # export CPPFLAGS="-I/usr/local/opt/openblas/include"
-export CPPFLAGS="-I$TENSORFLOW"
+# export CPPFLAGS="-I$TENSORFLOW"
 # export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/openblas/lib/pkgconfig"
 ## To use the bundled libc++ please add the following LDFLAGS:
 ## LLVM
@@ -38,3 +38,8 @@ export CPPFLAGS="-I$TENSORFLOW"
 
 # Added by Krypton
 export GPG_TTY=$(tty)
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+
+
+export PATH="$HOME/.cargo/bin:$PATH"
