@@ -27,7 +27,7 @@ export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/zlib/lib/pkgconfig"
 export PIP_REQUIRE_VIRTUALENV=true
 ## enable global pip
 gpip() {
-      PIP_REQUIRE_VIRTUALENV="" pip2 "$@"
+      PIP_REQUIRE_VIRTUALENV="" pip "$@"
 }
 gpip3() {
     PIP_REQUIRE_VIRTUALENV="" pip3 "$@"
@@ -40,4 +40,24 @@ pyclean () {
       find . -type d -name ".pytest_cache/" -exec rm -r {} +;
 }
 
+## FUNCTION FOR ACTIVATING VIRTUALENVS
+workon () {
+    source $1/bin/activate
+}
+
+## FUNCTION FOR MAKING VIRTUALENVS
+## example usage:
+##     mkvenv .env 3.6.6
+mkvenv () {
+    if [ $# -ne 2 ]
+    then
+        echo "Expected arguments: venv_name python_version"
+        echo "Available python versions:"
+        pyenv versions
+    else
+        name=$1
+        version=$2
+        $PYENV_ROOT/versions/$version/bin/python -m venv $name
+    fi
+}
 
