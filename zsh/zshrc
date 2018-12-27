@@ -1,7 +1,6 @@
-
 ## PATH
+export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/manual/bin:$PATH
-export PATH=$PATH:/usr/local/share/pypy3:/usr/local/share/pypy
 
 
 # # ----------------------------- Plugins ---------------------------------------
@@ -30,14 +29,17 @@ export PATH=$PATH:/usr/local/share/pypy3:/usr/local/share/pypy
 # zplug "seebi/dircolors-solarized", ignore:"*", as:plugin
 # zplug "agkozak/agkozak-zsh-theme"
 #
-# Docker completion
+# # Docker completion
 # zplug "felixr/docker-zsh-completion"
 #
 # zplug load
 
 # Plugins
 plugins=(
+  common-aliases
+  docker
   git
+  pipenv
 )
 
 # ----------------------------- Oh My Zsh ---------------------------------------
@@ -55,10 +57,18 @@ source $ZSH/oh-my-zsh.sh
 # -------------- User configuration -----------------------
 # ssh
 # export SSH_KEY_PATH="~/.ssh/id_ed25519"
+ssh_port_forward() { ssh "-L$1:localhost:$2 -fN $3"; }
+
+# Added by Krypton
+export GPG_TTY=$(tty)
 
 ## ALIASES
 alias jpn='jupyter notebook'
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias vim='nvim'
+export DOCKER="$HOME/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux"
 
 . $HOME/.bash_profile_venv
+
+## zsh-autosuggestions
+. /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
