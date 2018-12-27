@@ -10,16 +10,18 @@ cask 'gimp'
 cask 'inkscape'
 # cask 'slack'
 cask 'gitup'
-cask 'mactex'
 cask 'adobe-acrobat-reader'
 # cask 'java'
+cask 'julia'
 cask 'caffeine'
-cask 'lastpass'  # no checksum
+# cask 'lastpass'  # no checksum
 cask 'dropbox'  # no checksum
 cask 'google-chrome'  # no checksum
+# cask 'google-cloud-sdk'
 # cask 'zoomus'
 cask 'visual-studio-code'
 cask 'firefox'
+cask 'mactex'
 
 # # Codeship
 # tap "codeship/taps"
