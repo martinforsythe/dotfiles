@@ -143,20 +143,20 @@ augroup ale_config
     "
     " If |g:ale_c_parse_makefile| or |b:ale_c_parse_makefile| is set to `1`, the
     " output of `make -n` will be preferred over `compile_commands.json` files.
+    let g:ale_c_parse_compile_commands = 1
     let g:ale_c_parse_makefile = 1
 
     " -----------------------------------------
     " ---- PROJECT SPECIFIC COMPILER FLAGS ----
     " -----------------------------------------
     " would be nice if this was parsed from compile_commands.json or Makefiles
-    let g:ale_cpp_clang_options = '-Wall -Werror -std=gnu++11 -stdlib=libc++'
-    let g:ale_cpp_clangtidy_options = '-Wall -Werror -std=gnu++11 -stdlib=libc++ -x c++'
-    let g:ale_cpp_clangcheck_options = '-- -Wall -Werror -std=gnu++11 -stdlib=libc++ -x c++ -extra-arg -Xclang -extra-arg -analyzer-output=text'
-    let g:ale_cpp_clangd_options = '-std=gnu++11 -stdlib=libc++'
-
-    let g:ale_c_clang_options = '-Wall -Werror -std=gnu11'
-    let g:ale_c_clangtidy_options = '-Wall -Werror -std=gnu11 -x c'
-    let g:ale_c_clangd_options = '-std=gnu11'
+    "let g:ale_cpp_clang_options = '-Wall -Werror -std=gnu++11 -stdlib=libc++'
+    "let g:ale_cpp_clangtidy_options = '-Wall -Werror -std=gnu++11 -stdlib=libc++ -x c++'
+    "let g:ale_cpp_clangcheck_options = '-- -Wall -Werror -std=gnu++11 -stdlib=libc++ -x c++ -extra-arg -Xclang -extra-arg -analyzer-output=text'
+    "let g:ale_cpp_clangd_options = '-std=gnu++11 -stdlib=libc++'
+    "let g:ale_c_clang_options = '-Wall -Werror -std=gnu11'
+    "let g:ale_c_clangtidy_options = '-Wall -Werror -std=gnu11 -x c'
+    "let g:ale_c_clangd_options = '-std=gnu11'
 
     " https://github.com/MaskRay/ccls/wiki/Customization#initialization-options
     let g:ale_c_ccls_init_options = {}
