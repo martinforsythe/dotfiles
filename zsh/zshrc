@@ -1,7 +1,27 @@
 ## PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/manual/bin:$PATH
+export PATH=/usr/local/opt/llvm/bin:$PATH
 
+# Google Cloud SDK
+export CLOUDSDK_PYTHON="$HOME/.pyenv/versions/3.6.6/bin/python3.6"
+export PATH=$(gcloud info --format="value(installation.sdk_root)")/bin:$PATH
+
+# LMSDK
+export __LMCONF_PREFIX=$HOME/.config/
+export __DYLD_LIBRARY_PATH=$HOME/workspace/lm-sdk/lib
+export LD_LIBRARY_PATH=$HOME/workspace/lm-sdk/lib:$LD_LIBRARY_PATH
+export DYLD_LIBRARY_PATH=$HOME/workspace/lm-sdk/lib:$DYLD_LIBRARY_PATH
+# Help vim parse things
+export C_INCLUDE_PATH=$HOME/workspace/lm-sdk/include/:$C_INCLUDE_PATH
+export C_INCLUDE_PATH=$HOME/workspace/lm-sdk/src/include:$C_INCLUDE_PATH
+export C_INCLUDE_PATH=/usr/local/opt/llvm/include:$C_INCLUDE_PATH
+export CPLUS_INCLUDE_PATH=$HOME/workspace/lm-sdk/include/:$CPLUS_INCLUDE_PATH
+export CPLUS_INCLUDE_PATH=$HOME/workspace/lm-sdk/src/include:$CPLUS_INCLUDE_PATH
+export CPLUS_INCLUDE_PATH=/usr/local/opt/llvm/include:$CPLUS_INCLUDE_PATH
+
+# CCLS language server
+# exec "$HOME/external_code/ccls/Release/ccls" "$@"
 
 # # ----------------------------- Plugins ---------------------------------------
 # # inspired by https://github.com/tonylambiris/dotfiles/blob/master/dot.zshrc
@@ -39,7 +59,7 @@ plugins=(
   common-aliases
   docker
   git
-  pipenv
+  # pipenv
 )
 
 # ----------------------------- Oh My Zsh ---------------------------------------
@@ -49,8 +69,7 @@ source $ZSH/custom/themes/powerlevel9k.customizations
 
 DEFAULT_USER="lightmatter"
 
-
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -66,7 +85,7 @@ export GPG_TTY=$(tty)
 alias jpn='jupyter notebook'
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias vim='nvim'
-export DOCKER="$HOME/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux"
+# export DOCKER="$HOME/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux"
 
 . $HOME/.bash_profile_venv
 
