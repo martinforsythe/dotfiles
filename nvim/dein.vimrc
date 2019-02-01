@@ -33,9 +33,9 @@ if dein#load_state(expand('~/.config/nvim/dein'))
 
   " autocompletion (only enable in insert mode)
   call dein#add('Shougo/deoplete.nvim', {'on_i': 1, 'lazy': 1})
-  call dein#add('Shougo/neosnippet')
-  call dein#add('Shougo/neosnippet-snippets')
-  call dein#add('wokalski/autocomplete-flow', {'on_i': 1, 'lazy' : 1})
+  " call dein#add('Shougo/neosnippet')
+  " call dein#add('Shougo/neosnippet-snippets')
+  " call dein#add('wokalski/autocomplete-flow', {'on_i': 1, 'lazy' : 1})
 
   " linting
   call dein#add('w0rp/ale')
@@ -46,23 +46,53 @@ if dein#load_state(expand('~/.config/nvim/dein'))
   " transition between single and multi-line code
   call dein#add('AndrewRadev/splitjoin.vim')
 
-  " python only plugins
+  "---- python plugins ----
   call dein#add('vim-python/python-syntax', {'on_ft': 'python'})
   call dein#add('jmcantrell/vim-virtualenv', {'on_ft': 'python'})
   call dein#add('zchee/deoplete-jedi', {'on_i': 1, 'on_ft': 'python'})
   " not sure that I like SimplyFold
-  "call dein#add('tmhedberg/SimpylFold', {'on_i': 1, 'on_ft': 'python'}) " code folding
+  "call dein#add('tmhedberg/SimpylFold', {'on_i': 1, 'on_ft': 'python'})
 
-  " C/C++ plugins
-  cal dein#add('zchee/deoplete-clang', {
+  " fuzzy matching
+  " call dein#add('junegunn/fzf')
+
+  "----  C/C++/ObjC plugins ----
+  call dein#add ('Shougo/neoinclude.vim', {
     \ 'on_ft': ['c', 'cpp', 'objc', 'objcpp'],
     \ })
-  call dein#add('autozimu/LanguageClient-neovim', {
-    \ 'rev': 'next',
-    \ 'build': 'bash install.sh',
-    \ })
+  " call dein#add ('neomake/neomake', {
+  "   \ 'on_ft': ['c', 'cpp', 'objc', 'objcpp'],
+  "   \ })
+  " " language server integration
+  " call dein#add('autozimu/LanguageClient-neovim', {
+  "   \ 'rev': 'next',
+  "   \ 'build': 'bash install.sh',
+  "   \ })
 
-  " rust only plugins
+  " " requires a compile_commands.json to be configured
+  " " can use https://github.com/nickdiego/compiledb
+  " call dein#add('Shougo/deoplete-clangx', {
+  "  \ 'on_i': 1,
+  "  \ 'on_ft': ['c', 'cpp', 'objc', 'objcpp'],
+  "   \ 'lazy' : 1,
+  "  \ })
+  " " faster than deoplete-clang
+  " call dein#add('tweekmonster/deoplete-clang2', {
+  "  \ 'on_i': 1,
+  "  \ 'on_ft': ['c', 'cpp', 'objc', 'objcpp'],
+  "   \ 'lazy' : 1,
+  "  \ })
+  " call dein#add('zchee/deoplete-clang', {
+  "   \ 'on_i': 1,
+  "   \ 'on_ft': ['c', 'cpp', 'objc', 'objcpp'],
+  "   \ 'lazy' : 1,
+  "   \ })
+  " call dein#add('Rip-Rip/clang_complete', {
+  "   \ 'on_ft': ['c', 'cpp', 'objc', 'objcpp'],
+  "   \ 'lazy' : 1,
+  "   \ })
+
+  "---- rust plugins ----
   call dein#add('racer-rust/vim-racer', {'on_ft': 'rust'})
   call dein#add('rust-lang/rust.vim', {'on_ft': 'rust'})
   call dein#add('sebastianmarkow/deoplete-rust', {
@@ -70,11 +100,8 @@ if dein#load_state(expand('~/.config/nvim/dein'))
     \ 'on_ft': 'rust',
     \ })
 
-  " HTML only plugins
+  "---- HTML plugins ----
   call dein#add('Valloric/MatchTagAlways', {'on_ft': 'html'})
-
-  " C/Objective-C plugin
-  call dein#add('tweekmonster/deoplete-clang2', {'on_ft': ['c', 'cpp', 'objc', 'objcpp']})
 
   "------------------------------------------
   call dein#end()
