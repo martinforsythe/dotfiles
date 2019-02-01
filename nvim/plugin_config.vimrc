@@ -5,8 +5,8 @@
 "------------------------------------------------------
 
 " which pythons should neovim use
-" let g:python2_host_prog = expand('~/.virtualenvs/neovim2715/bin/python')
-let g:python3_host_prog = expand('~/.virtualenvs/neovim366/bin/python')
+let g:python3_host_prog = expand('~/.local/share/virtualenvs/neovim372/bin/python')
+let g:python2_host_prog = expand('~/.local/share/virtualenvs/neovim27/bin/python')
 
 "---------------------------------------------
 "                SimpylFold
@@ -31,6 +31,18 @@ let g:SimpylFold_fold_import=0
 " https://github.com/vim-airline/vim-airline-themes
 "---------------------------------------------
 let g:airline_theme = 'luna'
+let g:airline#extensions#languageclient#enabled = 1
+let g:airline#extensions#neomake#enabled = 1
+let g:airline#extensions#virtualenv#enabled = 1
+
+"---------------------------------------------
+"           Language-Client Servers
+"---------------------------------------------
+let g:LanguageClient_serverCommands = {
+  \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+  \ 'cpp': ['clangd'],
+  \ }
+
 
 "---------------------------------------------
 "                 Deoplete
@@ -63,7 +75,31 @@ let g:python_highlight_all = 1
 let g:deoplete#sources#jedi#server_timeout = 10
 let g:deoplete#sources#jedi#show_docstring = 1
 
-
+"---------------------------------------------
+"         Deoplete Clang (C/C++)
+" For configuration instructions see:
+" https://github.com/tweekmonster/deoplete-clang2
+"
+" This section is currently commented out because I could not get
+" deoplete-clang or deoplete-clang2 to work correctly.
+"---------------------------------------------
+"
+" let g:deoplete#sources#clang#clang_header = '/usr/local/opt/llvm/include'
+" let g:deoplete#sources#clang#libclang_path = '/usr/local/Cellar/llvm/7.0.1/lib/libclang.dylib'
+" let g:deoplete#sources#clang#autofill_neomake = 1
+" let g:deoplete#sources#clang#executable = '/usr/local/opt/llvm/bin/clang'
+" " use C++11 standard, not C++17 (i.e. c++1z)
+" let g:deoplete#sources#clang#std = {'c': 'c11', 'cpp': 'c++11', 'objc': 'c11', 'objcpp': 'c++11'}
+" let g:deoplete#sources#clang#clang_complete_database = '$HOME/workspace/lm-sdk/'
+" set completeopt-=preview
+"
+"--------------------------------------------
+"         Deoplete ClangX
+" https://github.com/Shougo/deoplete-clangx
+"--------------------------------------------
+" Change clang binary path
+" let g:deoplete#custom#var = ('clangx', 'clang_binary', '/usr/local/opt/llvm/bin/clang')
+"
 "---------------------------------------------
 "               Deopelete Rust
 " Auto-completion source for Rust via Racer
@@ -77,35 +113,90 @@ let g:deoplete#sources#jedi#show_docstring = 1
 " nmap <buffer> gd <plug>DeopleteRustGoToDefinitionDefault
 " nmap <buffer> K  <plug>DeopleteRustShowDocumentation
 
+"---------------------------------------------
+"                LLVM Toolchain
+" https://clang.llvm.org/extra/include-fixer.html
+"
+"---------------------------------------------
+" let g:clang_include_fixer_path=clang-include-fixer
+
 
 "---------------------------------------------
 "     Asynchronous Lint Engine (ALE)
 " For configuration instructions see:
 " https://github.com/w0rp/ale#installation
 "---------------------------------------------
-" By default ALE will run all available tools for all supported languages.
-" For all languages unspecified in the dictionary, all possible linters
-" will be run, just as when the dictionary is not defined.
-"
-" flake8 checks pep8, pyflakes, and circular complexity so it is enough
-let b:ale_linters = {
-\   'python': ['flake8'],
-\}
+augroup ale_config
+    autocmd!
+    let g:ale_completion_enabled = 1
+    let g:ale_set_highlights = 1
+    let g:ale_set_signs = 1
+    let g:ale_set_balloons = 1
+    let g:ale_lint_on_save = 0
 
-" Specify which tools ALE should use to fix linting errors
-let g:ale_fixers = {
-\   'python': [
-\        'trim_whitespace',
-\        'remove_trailing_lines',
-\        'autopep8',
-\        'isort',
-\        'add_blank_lines_for_python_control_statements',
-\   ],
-\}
+    " If `ale_c_parse_compile_commands = 1`, ALE will parse `compile_commands.json`
+    " to determine flags for C or C++ compilers. ALE expects this to be in the
+    " `"comamnds"` format rather than the `"arguments"` format.
+    " ALE will first search for the nearest `compile_commands.json` file, and
+    " then look for `compile_commands.json` files in the directories for
+    " |g:ale_c_build_dir_names|.
+    "
+    " If |g:ale_c_parse_makefile| or |b:ale_c_parse_makefile| is set to `1`, the
+    " output of `make -n` will be preferred over `compile_commands.json` files.
+    let g:ale_c_parse_makefile = 1
 
-" Do not lint or fix minified js and css files.
-let g:ale_pattern_options = {
-\   '\.min\.js$': {'ale_linters': [], 'ale_fixers': []},
-\   '\.min\.css$': {'ale_linters': [], 'ale_fixers': []},
-\}
+    " -----------------------------------------
+    " ---- PROJECT SPECIFIC COMPILER FLAGS ----
+    " -----------------------------------------
+    " would be nice if this was parsed from compile_commands.json or Makefiles
+    let g:ale_cpp_clang_options = '-Wall -Werror -std=gnu++11 -stdlib=libc++'
+    let g:ale_cpp_clangtidy_options = '-Wall -Werror -std=gnu++11 -stdlib=libc++ -x c++'
+    let g:ale_cpp_clangcheck_options = '-- -Wall -Werror -std=gnu++11 -stdlib=libc++ -x c++ -extra-arg -Xclang -extra-arg -analyzer-output=text'
+    let g:ale_cpp_clangd_options = '-std=gnu++11 -stdlib=libc++'
+
+    let g:ale_c_clang_options = '-Wall -Werror -std=gnu11'
+    let g:ale_c_clangtidy_options = '-Wall -Werror -std=gnu11 -x c'
+    let g:ale_c_clangd_options = '-std=gnu11'
+
+    " https://github.com/MaskRay/ccls/wiki/Customization#initialization-options
+    let g:ale_c_ccls_init_options = {}
+
+    " By default ALE will run all available tools for all supported languages.
+    " For all languages unspecified in the dictionary, all possible linters
+    " will be run, just as when the dictionary is not defined.
+    "
+    " 'clangcheck' seems to have issues with outputing .plst files despite
+    " attempts to set the -extra-arg -analyzer-output=text options
+    "
+    " I have manually compiled and installed github.com/MaskRay/ccls
+    " which aims to be a more modern language server than cquery
+    " ccls seems to require having a .ccls-root file in the project root
+    " and a compile_commands.json
+    "
+    let b:ale_linters = {
+    \   'python': ['flake8'],
+    \   'c': [
+    \     'clang', 'clangd', 'cppcheck', 'clangtidy', 'flawfinder', 'ccls',
+    \   ],
+    \   'cpp': [
+    \     'clang', 'clangd', 'cppcheck', 'clangtidy', 'flawfinder', 'ccls',
+    \   ],
+    \}
+
+    " Specify which tools ALE should use to fix linting errors
+    let g:ale_fixers = {
+    \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+    \   'python': [
+    \     'yapf', 'isort', 'add_blank_lines_for_python_control_statements',
+    \   ],
+    \   'c': ['clang-format'],
+    \   'cpp': ['clang-format'],
+    \}
+
+    " Do not lint or fix minified js and css files.
+    let g:ale_pattern_options = {
+    \   '\.min\.js$': {'ale_linters': [], 'ale_fixers': []},
+    \   '\.min\.css$': {'ale_linters': [], 'ale_fixers': []},
+    \}
+augroup END
 
