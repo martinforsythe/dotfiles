@@ -4,16 +4,17 @@ PS1="\W:$ "
 
 #ENV VARS
 export DOTFILES=$HOME/dotfiles
-# export TENSORFLOW=$HOME/external_code/tensorflow
 
 #PATH
+export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/manual/bin:$PATH
+export PATH=/usr/local/opt/llvm/bin:$PATH
 
 ## ALIASES
 ssh_port_forward() { ssh "-L$1:localhost:$2 -fN $3"; }
 alias jpn='jupyter notebook'
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
-export DOCKER="$HOME/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux"
+# export DOCKER="$HOME/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux"
 alias vim='nvim'
 
 . $HOME/.bash_profile_venv
@@ -24,9 +25,9 @@ alias vim='nvim'
 # export CPPFLAGS="-I/usr/local/opt/openblas/include"
 # export CPPFLAGS="-I$TENSORFLOW"
 # export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/openblas/lib/pkgconfig"
-## To use the bundled libc++ please add the following LDFLAGS:
-## LLVM
-#  LDFLAGS="-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib"
+
+# LLVM: use libc++ from brewed LLVM
+LDFLAGS="-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib"
 
 ## GO:
 # A valid GOPATH is required to use the `go get` command.
@@ -41,5 +42,5 @@ export GPG_TTY=$(tty)
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
-
-export PATH="$HOME/.cargo/bin:$PATH"
+# Rust
+# export PATH="$HOME/.cargo/bin:$PATH"
