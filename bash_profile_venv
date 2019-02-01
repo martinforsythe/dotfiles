@@ -1,6 +1,7 @@
 ## PIPENV
 PIPENV_DEFAULT_PYTHON_VERSION=/usr/local/bin/python3
-eval "$(pipenv --completion)"
+# eval "$(pipenv --completion)"
+# alias pact="source $(pipenv --venv)/bin/activate"
 
 ## PYENV
 export PYENV_ROOT="$HOME/.pyenv"
@@ -10,6 +11,7 @@ then
     # initialize pyenv
     eval "$(pyenv init -)"
 fi
+
 ## Compiler flags for pyenv to discover homebrew's zlib, openssl, and readline
 export LDFLAGS="-L/usr/local/opt/readline/lib -L/usr/local/opt/zlib/lib -L/usr/local/opt/openssl/lib"
 export CPPFLAGS="-I/usr/local/opt/readline/include -I/usr/local/opt/zlib/include -I/usr/local/opt/openssl/include"
@@ -34,7 +36,7 @@ pyclean () {
 
 ## FUNCTION FOR ACTIVATING VIRTUALENVS
 workon () {
-    source $1/bin/activate
+    source $HOME/.local/share/virtualenvs/$1/bin/activate
 }
 
 ## FUNCTION FOR MAKING VIRTUALENVS
