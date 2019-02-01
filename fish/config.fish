@@ -29,6 +29,11 @@ alias gfa 'git fetch --all'
 alias gs 'git status'
 alias gb 'git branch --list'
 
+# Enable Google Cloud SDK
+source (gcloud info --format="value(installation.sdk_root)")/path.fish.inc
+# Not sure if the command completions will work in fish
+# bass source (gcloud info --format="value(installation.sdk_root)")/completion.bash.inc
+
 # PATH
 set PATH /usr/local/bin /usr/local/manual/bin $PATH
 
