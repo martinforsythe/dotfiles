@@ -28,6 +28,13 @@ set shiftwidth  =4
 set softtabstop =4
 set expandtab
 
+augroup filetype_clike
+    autocmd!
+    autocmd FileType c,cpp,objc,objcpp set ts=2 sw=2 sts=2 expandtab
+    autocmd FileType c,cpp,objc,objcpp setlocal textwidth=120
+    autocmd FileType c,cpp,objc,objcpp setlocal colorcolumn=120
+augroup END
+
 augroup filetype_python
     autocmd!
     autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr>      " yapf with deoplete
@@ -49,4 +56,3 @@ augroup END
 
 " text wrap at 80 characters for markdown
 au BufRead,BufNewFile *.md setlocal textwidth=80
-au BufRead,BufNewFile *.py setlocal textwidth=80
