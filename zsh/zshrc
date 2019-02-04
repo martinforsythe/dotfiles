@@ -12,13 +12,6 @@ export __LMCONF_PREFIX=$HOME/.config/
 export __DYLD_LIBRARY_PATH=$HOME/workspace/lm-sdk/lib
 export LD_LIBRARY_PATH=$HOME/workspace/lm-sdk/lib:$LD_LIBRARY_PATH
 export DYLD_LIBRARY_PATH=$HOME/workspace/lm-sdk/lib:$DYLD_LIBRARY_PATH
-# Help vim parse things
-export C_INCLUDE_PATH=$HOME/workspace/lm-sdk/include/:$C_INCLUDE_PATH
-export C_INCLUDE_PATH=$HOME/workspace/lm-sdk/src/include:$C_INCLUDE_PATH
-export C_INCLUDE_PATH=/usr/local/opt/llvm/include:$C_INCLUDE_PATH
-export CPLUS_INCLUDE_PATH=$HOME/workspace/lm-sdk/include/:$CPLUS_INCLUDE_PATH
-export CPLUS_INCLUDE_PATH=$HOME/workspace/lm-sdk/src/include:$CPLUS_INCLUDE_PATH
-export CPLUS_INCLUDE_PATH=/usr/local/opt/llvm/include:$CPLUS_INCLUDE_PATH
 
 # CCLS language server
 # exec "$HOME/external_code/ccls/Release/ccls" "$@"

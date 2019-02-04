@@ -35,14 +35,32 @@ let g:airline#extensions#languageclient#enabled = 1
 let g:airline#extensions#neomake#enabled = 1
 let g:airline#extensions#virtualenv#enabled = 1
 
-"---------------------------------------------
-"           Language-Client Servers
-"---------------------------------------------
-let g:LanguageClient_serverCommands = {
-  \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-  \ 'cpp': ['clangd'],
-  \ }
+""---------------------------------------------
+""           Language-Client Servers
+""---------------------------------------------
+"let g:LanguageClient_serverCommands = {
+"  \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+"  \ 'cpp': ['clangd'],
+"  \ }
 
+"---------------------------------------------
+"           COC Completion Server
+" https://github.com/neoclide/coc.nvim/wiki/Completion-with-sources
+"---------------------------------------------
+" use <tab> for trigger completion and navigate to next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+" Navagate completion list and cofirm complete
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 "---------------------------------------------
 "                 Deoplete
@@ -56,6 +74,21 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
 autocmd CompleteDone * pclose        " close preview window of deoplete
 
+
+"----------------------------------------------
+"                Neoinclude
+" See: https://github.com/Shougo/neoinclude.vim/blob/master/doc/neoinclude.txt
+" The |g:neoinclude#paths| is set automatically from path
+" To be more conservative I explicitly set the include path for C/C++ file
+" types.
+"----------------------------------------------
+" set path='/usr/include/**,/usr/local/include/**,/usr/local/opt/llvm/include/**,/usr/local/opt/gcc/include/**'
+" FIXME: would be nice to set the project specific include paths with a local
+" .nvimrc or similar
+let g:neoinclude#paths = {
+            \ 'c': '/usr/local/opt/llvm/include/**,~/workspace/lm-sdk/include,~/workspace/lm-sdk/src/include,~/workspace/lm-sdk/test/include',
+            \ 'cpp': '/usr/local/opt/llvm/include/**,~/workspace/lm-sdk/include,~/workspace/lm-sdk/src/include,~/workspace/lm-sdk/test/include',
+            \ }
 
 let g:autocomplete_flow#insert_paren_after_function = 0
 
@@ -149,6 +182,11 @@ augroup ale_config
     " -----------------------------------------
     " ---- PROJECT SPECIFIC COMPILER FLAGS ----
     " -----------------------------------------
+    " Movement through the ALE errors
+    " map keys to use wrapping.
+    nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+    nmap <silent> <C-j> <Plug>(ale_next_wrap)
+    
     " would be nice if this was parsed from compile_commands.json or Makefiles
     "let g:ale_cpp_clang_options = '-Wall -Werror -std=gnu++11 -stdlib=libc++'
     "let g:ale_cpp_clangtidy_options = '-Wall -Werror -std=gnu++11 -stdlib=libc++ -x c++'
@@ -160,6 +198,8 @@ augroup ale_config
 
     " https://github.com/MaskRay/ccls/wiki/Customization#initialization-options
     let g:ale_c_ccls_init_options = {}
+
+    let g:ale_c_uncrustify_options = '-c ~/.uncrustify'
 
     " By default ALE will run all available tools for all supported languages.
     " For all languages unspecified in the dictionary, all possible linters
@@ -176,10 +216,10 @@ augroup ale_config
     let b:ale_linters = {
     \   'python': ['flake8'],
     \   'c': [
-    \     'clang', 'clangd', 'cppcheck', 'clangtidy', 'flawfinder', 'ccls',
+    \     'ccls',
     \   ],
     \   'cpp': [
-    \     'clang', 'clangd', 'cppcheck', 'clangtidy', 'flawfinder', 'ccls',
+    \     'ccls',
     \   ],
     \}
 
@@ -189,8 +229,8 @@ augroup ale_config
     \   'python': [
     \     'yapf', 'isort', 'add_blank_lines_for_python_control_statements',
     \   ],
-    \   'c': ['clang-format'],
-    \   'cpp': ['clang-format'],
+    \   'c': ['uncrustify'],
+    \   'cpp': ['uncrustify'],
     \}
 
     " Do not lint or fix minified js and css files.

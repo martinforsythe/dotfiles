@@ -24,6 +24,9 @@ if dein#load_state(expand('~/.config/nvim/dein'))
   " {'on_ft' []} is lazy load on file type
   "------------------------------------------
 
+  " local vimrc files
+  call dein#add('MarcWeber/vim-addon-local-vimrc')
+
   " status line
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
@@ -32,7 +35,9 @@ if dein#load_state(expand('~/.config/nvim/dein'))
   call dein#add('airblade/vim-gitgutter')
 
   " autocompletion (only enable in insert mode)
-  call dein#add('Shougo/deoplete.nvim', {'on_i': 1, 'lazy': 1})
+  " We'll use ALE with the CCLS language server for C/C++ so no need for deoplete
+  call dein#add('Shougo/deoplete.nvim', {'on_i': 1, 'lazy': 1, 'on_ft': ['python', 'rust']})
+
   " call dein#add('Shougo/neosnippet')
   " call dein#add('Shougo/neosnippet-snippets')
   " call dein#add('wokalski/autocomplete-flow', {'on_i': 1, 'lazy' : 1})
@@ -43,32 +48,40 @@ if dein#load_state(expand('~/.config/nvim/dein'))
   " lazy load NerdTree on command
   call dein#add('scrooloose/nerdtree', {'on_cmd': 'NERDTreeToggle'})
 
-  " transition between single and multi-line code
-  call dein#add('AndrewRadev/splitjoin.vim')
-
   "---- python plugins ----
   call dein#add('vim-python/python-syntax', {'on_ft': 'python'})
   call dein#add('jmcantrell/vim-virtualenv', {'on_ft': 'python'})
   call dein#add('zchee/deoplete-jedi', {'on_i': 1, 'on_ft': 'python'})
+
+  " transition between single and multi-line code
+  call dein#add('AndrewRadev/splitjoin.vim', {'on_ft': 'python'})
+
   " not sure that I like SimplyFold
   "call dein#add('tmhedberg/SimpylFold', {'on_i': 1, 'on_ft': 'python'})
 
-  " fuzzy matching
-  " call dein#add('junegunn/fzf')
-
   "----  C/C++/ObjC plugins ----
-  call dein#add ('Shougo/neoinclude.vim', {
+  call dein#add('Shougo/neoinclude.vim', {
+    \ 'on_i': 1,
     \ 'on_ft': ['c', 'cpp', 'objc', 'objcpp'],
     \ })
+
+  " -- COC --
+  " call dein#add('neoclide/coc.nvim', {
+  "   \ 'on_ft': ['c', 'cpp', 'objc', 'objcpp'],
+  "   \ })
+  " call dein#add('jsfaint/coc-neoinclude', {
+  "  \ 'on_ft': ['c', 'cpp', 'objc', 'objcpp'],
+  "  \ })
+
   " call dein#add ('neomake/neomake', {
   "   \ 'on_ft': ['c', 'cpp', 'objc', 'objcpp'],
   "   \ })
-  " " language server integration
+  "
   " call dein#add('autozimu/LanguageClient-neovim', {
   "   \ 'rev': 'next',
   "   \ 'build': 'bash install.sh',
   "   \ })
-
+  "
   " " requires a compile_commands.json to be configured
   " " can use https://github.com/nickdiego/compiledb
   " call dein#add('Shougo/deoplete-clangx', {
@@ -115,6 +128,7 @@ syntax enable
 "----- Check/install plugins on startup. -----
 if dein#check_install()
   call dein#install()
+  call dein#recache_runtimepath()
 endif
 
 " To update dein:
