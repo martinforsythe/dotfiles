@@ -1,0 +1,10 @@
+{
+  "coc.preferences.minTriggerInputLength": 2,
+  "languageserver": {
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "objc", "objcpp"],
+      "rootPatterns": [".ccls", ".ccls-root", "compile_commands.json", ".git/"],
+    }
+  }
+}
