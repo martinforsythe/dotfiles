@@ -45,6 +45,9 @@ if dein#load_state(expand('~/.config/nvim/dein'))
   " linting
   call dein#add('w0rp/ale')
 
+  " local vimrc files
+  call dein#add('MarcWeber/vim-addon-local-vimrc')
+
   " lazy load NerdTree on command
   call dein#add('scrooloose/nerdtree', {'on_cmd': 'NERDTreeToggle'})
 
