@@ -1,14 +1,115 @@
 "*":
   "atom-beautify":
-    cpp: {}
+    apex:
+      disabled: true
+    arduino:
+      disabled: true
+    blade:
+      disabled: true
+    c:
+      configPath: "~/.uncrustify"
+    cfml:
+      disabled: true
+    clj:
+      disabled: true
+    coffeescript:
+      disabled: true
+    cpp:
+      configPath: "~/.uncrustify"
+    crystal:
+      disabled: true
+    css:
+      disabled: true
+    csv:
+      disabled: true
+    d:
+      disabled: true
+    ejs:
+      disabled: true
+    elm:
+      disabled: true
+    erb:
+      disabled: true
+    erlang:
+      disabled: true
     general:
       analytics: false
-      muteAllErrors: true
-      muteUnsupportedLanguageErrors: true
+    gherkin:
+      disabled: true
+    glsl:
+      disabled: true
+    gn:
+      disabled: true
+    go:
+      disabled: true
+    gohtml:
+      disabled: true
+    handlebars:
+      disabled: true
+    haskell:
+      disabled: true
+    jade:
+      disabled: true
+    java:
+      disabled: true
+    js:
+      disabled: true
+    jsx:
+      disabled: true
+    less:
+      disabled: true
+    marko:
+      disabled: true
+    mustache:
+      disabled: true
+    nunjucks:
+      disabled: true
+    ocaml:
+      disabled: true
+    pawn:
+      disabled: true
+    php:
+      disabled: true
     python:
+      default_beautifier: "yapf"
       sort_imports: true
+    r:
+      disabled: true
+    riot:
+      disabled: true
+    ruby:
+      disabled: true
+    sass:
+      disabled: true
+    scss:
+      disabled: true
+    spacebars:
+      disabled: true
+    sql:
+      disabled: true
+    swig:
+      disabled: true
+    tss:
+      disabled: true
+    tsx:
+      disabled: true
+    twig:
+      disabled: true
+    typescript:
+      disabled: true
+    ux:
+      disabled: true
+    vala:
+      disabled: true
+    visualforce:
+      disabled: true
+    vue:
+      disabled: true
+    xtemplate:
+      disabled: true
   "autocomplete-python":
     useKite: false
+  "clang-format": {}
   core:
     disabledPackages: [
       "linter-pep8"
@@ -16,6 +117,28 @@
       "linter"
       "linter-flake8"
       "python-jedi"
+      "autocomplete-css"
+      "autocomplete-html"
+      "language-clojure"
+      "language-coffee-script"
+      "language-csharp"
+      "language-css"
+      "language-javascript"
+      "language-mustache"
+      "language-objective-c"
+      "language-typescript"
+      "archive-view"
+      "language-go"
+      "language-html"
+      "language-java"
+      "language-less"
+      "language-php"
+      "language-ruby"
+      "language-ruby-on-rails"
+      "language-sass"
+      "language-sql"
+      "clang-format"
+      "background-tips"
     ]
     ignoredNames: [
       ".git"
@@ -23,13 +146,16 @@
       ".svn"
       ".DS_Store"
       "._*"
-      "Thumbs.db"
+      "*.db"
       ".ipynb"
       "__pycache__"
       ".pyc"
       ".ipynb_checkpoints"
+      "*.so"
+      "*.d"
+      "*.o"
     ]
-    projectHome: "/Users/martin/gamalon/"
+    projectHome: "/Users/lightmatter/workspace/"
     telemetryConsent: "no"
     themes: [
       "atom-dark-ui"
@@ -37,7 +163,8 @@
     ]
     warnOnLargeFileLimit: 50
   editor:
-    fontSize: 11
+    fontSize: 12
+    showInvisibles: true
     tabLength: 4
   "exception-reporting":
     userId: "e067d5f5-f3dd-52c3-9962-3669ddb7504f"
@@ -69,6 +196,7 @@
   teletype: {}
   "tree-view":
     hideVcsIgnoredFiles: true
+    squashDirectoryNames: true
   welcome:
     showOnStartup: false
 ".breakpoints.hydrogen":
@@ -78,3 +206,14 @@
     softWrap: true
     softWrapAtPreferredLineLength: true
     tabLength: 4
+".c.source":
+  editor:
+    preferredLineLength: 120
+    showIndentGuide: true
+    tabLength: 2
+    tabType: "soft"
+".cpp.source":
+  editor:
+    preferredLineLength: 120
+    tabLength: 2
+    tabType: "soft"

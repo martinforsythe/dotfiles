@@ -31,6 +31,9 @@
 # Atom Flight Manual:
 # http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
 
+'body':
+  'shift-ctrl-i': 'window:toggle-invisibles'
+
 'atom-text-editor':
     'cmd-b': 'script:run'
 #     'cmd-shift-enter': 'hydrogen:run-all'
