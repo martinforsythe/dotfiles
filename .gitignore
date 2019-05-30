@@ -6,6 +6,9 @@ atom/.apm
 atom/blob-store
 atom/compile-cache
 atom/.node-gyp
+atom/.atom-socket-secret-*
+matplotlib/tex.cache/
+matplotlib/fontlist-v300.json
 nvim/dein/
 nvim/.netrwhist
 vim/bundle/
