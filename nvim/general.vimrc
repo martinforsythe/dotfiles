@@ -28,6 +28,17 @@ set shiftwidth  =4
 set softtabstop =4
 set expandtab
 
+" Default to indent based folding and start with 10-levels open
+set foldmethod=indent
+set foldlevel=10
+
+augroup filetype_restructuredtext
+    autocmd!
+    " turn off automatic folding for reStructuredText files
+    " see https://neovim.io/doc/user/options.html#'foldenable'
+    autocmd FileType rst set nofoldenable
+augroup END
+
 augroup filetype_clike
     autocmd!
     autocmd FileType c,cpp,objc,objcpp set ts=2 sw=2 sts=2 expandtab
@@ -54,5 +65,5 @@ augroup filetype_python
 
 augroup END
 
-" text wrap at 80 characters for markdown
-au BufRead,BufNewFile *.md setlocal textwidth=80
+" text wrap at 100 characters for markdown
+au BufRead,BufNewFile *.md setlocal textwidth=100

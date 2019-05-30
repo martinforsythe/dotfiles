@@ -14,8 +14,45 @@ let g:python3_host_prog = expand('~/.local/share/virtualenvs/neovim372/bin/pytho
 " https://github.com/tmhedberg/SimpylFold
 " open folds with :zo, close folds with :zc
 "---------------------------------------------
-let g:SimpylFold_fold_docstring=0
-let g:SimpylFold_fold_import=0
+" let g:SimpylFold_fold_docstring=0
+" let g:SimpylFold_fold_import=0
+
+"---------------------------------------------
+"              Coiled Snake
+" For configuration options see docs at:
+" https://github.com/kalekundert/vim-coiled-snake
+" open folds with :zo, close folds with :zc
+" See :help fold-commands
+"---------------------------------------------
+let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
+function! g:CoiledSnakeConfigureFold(fold)
+
+    " Don't fold nested classes.
+    if a:fold.type == 'class'
+        let a:fold.max_level = 1
+
+    " Don't fold nested functions, but do fold methods
+    " (i.e. functions nested inside a class).
+    " Also set min lines for function folding to 3.
+    elseif a:fold.type == 'function'
+        " let a:fold.min_lines = 3
+        let a:fold.max_level = 1
+        if get(a:fold.parent, 'type', '') == 'class'
+            let a:fold.max_level = 2
+        endif
+
+    " Only fold imports if there are 10 or more of them.
+    elseif a:fold.type == 'import'
+        let a:fold.min_lines = 10
+    endif
+
+    " Don't fold anything if the whole program is
+    " shorter than 50 lines.
+    if line('$') < 50
+        let a:fold.ignore = 1
+    endif
+
+endfunction
 
 "---------------------------------------------
 "                SplitJoin
