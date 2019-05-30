@@ -1,0 +1,39 @@
+
+0. install llvm:
+```
+brew install llvm
+```
+then add this to ~/.zshrc and source:
+```
+export PATH=/usr/local/opt/llvm/bin:$PATH
+export LDFLAGS="-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib $LDFLAGS"
+export CPPFLAGS="-I/usr/local/opt/llvm/include $LDFLAGS"
+```
+
+1. clone ccls repo:
+```
+cd ~/external_code
+git clone --depth=1 --recursive https://github.com/MaskRay/ccls
+cd ccls
+```
+
+2. configure cmake:
+```
+cmake -H. -BRelease \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_CXX_COMPILER=/usr/local/opt/llvm/bin/clang++ \
+    -DCMAKE_PREFIX_PATH=/usr/local/opt/llvm \
+    -DLLVM_INCLUDE_DIR=/usr/local/opt/llvm/include \
+    -DCMAKE_INSTALL_PREFIX=/usr/local/manual
+```
+
+3. build release version
+```
+cmake --build Release
+```
+
+4. if compilation succeeds, install to INSTALL_PREFIX location
+```
+sudo cmake --build Release --target install
+```
+(sudo is needed to deal with permissions to /usr/local/manual/bin)
