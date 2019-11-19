@@ -66,11 +66,16 @@ endfunction
 "               Airline-Teme
 " For configuration options see docs at:
 " https://github.com/vim-airline/vim-airline-themes
+" airline uses a number of other plugins:
+"  - vim-githutter <https://github.com/airblade/vim-gitgutter>
+"  - NerdTree <https://github.com/scrooloose/nerdtree.git>
 "---------------------------------------------
 let g:airline_theme = 'luna'
 let g:airline#extensions#languageclient#enabled = 1
 let g:airline#extensions#neomake#enabled = 1
 let g:airline#extensions#virtualenv#enabled = 1
+let g:airline#extensions#hunks#enabled = 1
+" to see hunks do: airline#extensions#hunks#get_raw_hunks()
 
 ""---------------------------------------------
 ""           Language-Client Servers
