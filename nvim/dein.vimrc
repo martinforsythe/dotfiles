@@ -31,8 +31,10 @@ if dein#load_state(expand('~/.config/nvim/dein'))
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
 
-  " gutter
+  " gutter and git hunks
+  call dein#add('jreybert/vimagit')
   call dein#add('airblade/vim-gitgutter')
+  call dein#add('mhinz/vim-signify')
 
   " autocompletion (only enable in insert mode)
   " We'll use ALE with the CCLS language server for C/C++ so no need for deoplete
@@ -54,13 +56,17 @@ if dein#load_state(expand('~/.config/nvim/dein'))
   "---- python plugins ----
   call dein#add('vim-python/python-syntax', {'on_ft': 'python'})
   call dein#add('jmcantrell/vim-virtualenv', {'on_ft': 'python'})
-  call dein#add('zchee/deoplete-jedi', {'on_i': 1, 'on_ft': 'python'})
+  " call dein#add('zchee/deoplete-jedi', {'on_i': 1, 'on_ft': 'python'})
+  call dein#add('editorconfig/editorconfig-vim', {'on_ft': 'python'})
 
   " transition between single and multi-line code
   call dein#add('AndrewRadev/splitjoin.vim', {'on_ft': 'python'})
 
-  " not sure that I like SimplyFold
-  "call dein#add('tmhedberg/SimpylFold', {'on_i': 1, 'on_ft': 'python'})
+  "---- code folding ----
+  " not sure that I like SimplyFold - need to restore :zo, :zc etc
+  " call dein#add('tmhedberg/SimpylFold', {'on_i': 1, 'on_ft': 'python'})
+  " call dein#add('Konfekt/FastFold', {'on_ft': 'python'})
+  " call dein#add('kalekundert/vim-coiled-snake', {'on_ft': 'python'})
 
   "----  C/C++/ObjC plugins ----
   call dein#add('Shougo/neoinclude.vim', {
