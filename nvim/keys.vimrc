@@ -21,6 +21,9 @@ inoremap kj <Esc>`^
 "-----  make backspaces more powerfull -----
 set backspace=indent,eol,start
 
+"----- set <leader> to , rather than default \ -----
+let mapleader = ","
+
 "----- Language client server key mappings ----
 " nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 " nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
