@@ -4,6 +4,8 @@
         "statusBar.background": "#013b3f",
         "statusBar.debuggingBackground": "#061439",
         "statusBar.noFolderBackground": "#013034",
+        "window.activeBorder": "#013b3f",
+        "window.inactiveBorder": "#cccccc",
     },
 
     // Controls the visibility of the Twitter feedback (smiley) in the 
@@ -34,8 +36,13 @@
     // [Read more](https://code.visualstudio.com/docs/editor/codebasics#_advanced-search-options).
     "files.exclude": {
         "**/.ipynb_checkpoints": true,
+        "**/.hdf5": true,
+        "**/.png": true,
+        "**/.jpg": true,
+        "**/__pycache__": true,
     },
     
     "zenMode.restore": true,
-    "window.restoreWindows": "all"
+    "window.restoreWindows": "all",
+    "window.zoomLevel": -1
 }
