@@ -64,6 +64,14 @@ if dein#load_state(expand('~/.config/nvim/dein'))
     \ 'on_i': 1,
     \ 'on_ft': ['c', 'cpp', 'objc', 'objcpp'],
     \ })
+  " C/C++ plugins
+  " call dein#add('zchee/deoplete-clang', {
+  "   \ 'on_ft': ['c', 'cpp', 'objc', 'objcpp'],
+  "   \ })
+  " call dein#add('autozimu/LanguageClient-neovim', {
+  "   \ 'rev': 'next',
+  "   \ 'build': 'bash install.sh',
+  "   \ })
 
   " -- COC --
   " call dein#add('neoclide/coc.nvim', {
