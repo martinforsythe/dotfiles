@@ -165,6 +165,7 @@
   editor:
     fontSize: 12
     showInvisibles: true
+    preferredLineLength: 120
     tabLength: 4
   "exception-reporting":
     userId: "e067d5f5-f3dd-52c3-9962-3669ddb7504f"
@@ -180,10 +181,10 @@
       "D102"
       "D103"
     ]
-    maxLineLength: 79
+    maxLineLength: 119
     pycodestyleErrorsToWarnings: true
   "linter-pep8":
-    maxLineLength: 80
+    maxLineLength: 120
   minimap:
     textOpacity: 0.55
   "python-autopep8":
@@ -201,7 +202,7 @@
     showOnStartup: false
 ".breakpoints.hydrogen":
   editor:
-    preferredLineLength: 79
+    preferredLineLength: 119
     scrollPastEnd: true
     softWrap: true
     softWrapAtPreferredLineLength: true
