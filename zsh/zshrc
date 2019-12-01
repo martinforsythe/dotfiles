@@ -1,12 +1,13 @@
 ## PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/manual/bin:$PATH
-export PATH=/usr/local/opt/llvm/bin:$PATH
 export PATH=$PATH:/Library/TeX/texbin
+. $HOME/.bash_profile_venv
+export PATH=/usr/local/opt/llvm/bin:$PATH
 
-# Google Cloud SDK
-export CLOUDSDK_PYTHON="$HOME/.pyenv/versions/3.6.6/bin/python3.6"
-export PATH=$(gcloud info --format="value(installation.sdk_root)")/bin:$PATH
+## RUST
+. $HOME/.cargo/env
+export RUST_SRC_PATH=$HOME/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src
 
 # LMSDK
 export __LMCONF_PREFIX=$HOME/.config/
@@ -80,8 +81,6 @@ alias jpn='jupyter notebook'
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias vim='nvim'
 # export DOCKER="$HOME/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux"
-
-. $HOME/.bash_profile_venv
 
 ## zsh-autosuggestions
 . /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
