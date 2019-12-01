@@ -106,12 +106,14 @@ if dein#load_state(expand('~/.config/nvim/dein'))
   "   \ })
 
   "---- rust plugins ----
-  call dein#add('racer-rust/vim-racer', {'on_ft': 'rust'})
+  " " This requires racer, which is currently only available
+  " " on the nightly install of rustc
+  " call dein#add('racer-rust/vim-racer', {'on_ft': 'rust'})
   call dein#add('rust-lang/rust.vim', {'on_ft': 'rust'})
-  call dein#add('sebastianmarkow/deoplete-rust', {
-    \ 'on_i': 1,
-    \ 'on_ft': 'rust',
-    \ })
+  " call dein#add('sebastianmarkow/deoplete-rust', {
+  "   \ 'on_i': 1,
+  "   \ 'on_ft': 'rust',
+  "   \ })
 
   "---- HTML plugins ----
   call dein#add('Valloric/MatchTagAlways', {'on_ft': 'html'})

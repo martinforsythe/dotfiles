@@ -6,7 +6,7 @@
 
 " which pythons should neovim use
 let g:python3_host_prog = expand('~/.local/share/virtualenvs/neovim372/bin/python')
-let g:python2_host_prog = expand('~/.local/share/virtualenvs/neovim27/bin/python')
+" let g:python2_host_prog = expand('~/.local/share/virtualenvs/neovim27/bin/python')
 
 "---------------------------------------------
 "                SimpylFold
@@ -132,7 +132,8 @@ let g:deoplete#sources#jedi#show_docstring = 1
 "--------------------------------------------
 " Change clang binary path
 " let g:deoplete#custom#var = ('clangx', 'clang_binary', '/usr/local/opt/llvm/bin/clang')
-"
+
+
 "---------------------------------------------
 "               Deopelete Rust
 " Auto-completion source for Rust via Racer
@@ -145,6 +146,13 @@ let g:deoplete#sources#jedi#show_docstring = 1
 " let g:deoplete#sources#rust#disable_keymap=1
 " nmap <buffer> gd <plug>DeopleteRustGoToDefinitionDefault
 " nmap <buffer> K  <plug>DeopleteRustShowDocumentation
+
+"---------------------------------------------
+"             rust-Lang/rust.vim
+"
+" The :RustFmt command will format your code.
+"---------------------------------------------
+let g:rustfmt_autosave = 1
 
 "---------------------------------------------
 "                LLVM Toolchain
@@ -201,6 +209,11 @@ augroup ale_config
 
     let g:ale_c_uncrustify_options = '-c ~/.uncrustify'
 
+    let g:ale_rust_rls_executable = 'rls'
+    let g:ale_rust_rls_toolchain = 'stable'
+    " use 'cargo clippy' instead of 'cargo check' or 'cargo build'
+    let g:ale_rust_cargo_use_clippy = 1
+
     " By default ALE will run all available tools for all supported languages.
     " For all languages unspecified in the dictionary, all possible linters
     " will be run, just as when the dictionary is not defined.
@@ -215,22 +228,18 @@ augroup ale_config
     "
     let b:ale_linters = {
     \   'python': ['flake8'],
-    \   'c': [
-    \     'ccls',
-    \   ],
-    \   'cpp': [
-    \     'ccls',
-    \   ],
+    \   'c': ['ccls'],
+    \   'cpp': ['ccls'],
+    \   'rust': ['rustc', 'rls', 'cargo'],
     \}
 
     " Specify which tools ALE should use to fix linting errors
     let g:ale_fixers = {
     \   '*': ['remove_trailing_lines', 'trim_whitespace'],
-    \   'python': [
-    \     'yapf', 'isort', 'add_blank_lines_for_python_control_statements',
-    \   ],
+    \   'python': ['yapf', 'isort'],
     \   'c': ['uncrustify'],
     \   'cpp': ['uncrustify'],
+    \   'rust': ['rustfmt'],
     \}
 
     " Do not lint or fix minified js and css files.
