@@ -21,6 +21,13 @@ inoremap kj <Esc>`^
 "-----  make backspaces more powerfull -----
 set backspace=indent,eol,start
 
+"----- make <Esc> exit the terminal emulator -----
+if has('nvim')
+  tnoremap <Esc> <C-\><C-n>
+  tnoremap <M-[> <Esc>
+  tnoremap <C-v><Esc> <Esc>
+endif
+
 "----- set <leader> to , rather than default \ -----
 let mapleader = ","
 
