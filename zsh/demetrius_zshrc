@@ -1,0 +1,26 @@
+# Google Cloud SDK
+export CLOUDSDK_PYTHON="$HOME/.pyenv/versions/3.6.7/bin/python3.6"
+export PATH=$PATH:$(gcloud info --format="value(installation.sdk_root)")/bin
+
+# LMSDK
+export __LMCONF_PREFIX=$HOME/.config/
+export __DYLD_LIBRARY_PATH=$HOME/workspace/lm-sdk/lib
+export LD_LIBRARY_PATH=$HOME/workspace/lm-sdk/lib:$LD_LIBRARY_PATH
+export DYLD_LIBRARY_PATH=$HOME/workspace/lm-sdk/lib:$DYLD_LIBRARY_PATH
+
+# OpenBLAS
+# export LDFLAGS="-L/usr/local/opt/openblas/lib $LDFLAGS"
+# export CPPFLAGS="-I/usr/local/opt/openblas/include $LDFLAGS"
+# export CFLAGS="-I/usr/local/opt/openblas/include $LDFLAGS"
+# export PKG_CONFIG_PATH="/usr/local/opt/openblas/lib/pkgconfig:$PKG_CONFIG_PATH"
+
+# Scipy compilation
+# export MACOSX_DEPLOYMENT_TARGET=10.14
+
+export SDKROOT="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
+
+# Aliases
+alias e=emacs
+
+# start CCLS language server
+# exec "$HOME/external_code/ccls/Release/ccls" "$@"
