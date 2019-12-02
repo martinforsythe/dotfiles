@@ -82,5 +82,7 @@ alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias vim='nvim'
 # export DOCKER="$HOME/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux"
 
+fpath+=~/.zfunc
+
 ## zsh-autosuggestions
 . /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
