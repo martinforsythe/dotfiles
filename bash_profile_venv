@@ -12,12 +12,23 @@ then
     eval "$(pyenv init -)"
 fi
 
-## Compiler flags for pyenv to discover homebrew's zlib, openssl, and readline
-export LDFLAGS="-L/usr/local/opt/readline/lib -L/usr/local/opt/zlib/lib -L/usr/local/opt/openssl/lib"
-export CPPFLAGS="-I/usr/local/opt/readline/include"
-export CPPFLAGS="-I/usr/local/opt/zlib/include $CPPFLAGS"
-export CPPFLAGS="-I/usr/local/opt/openssl/include $CPPFLAGS"
-export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/zlib/lib/pkgconfig"
+## Compiler flags for pyenv to discover homebrew's zlib, openssl, sqlite and readline
+#export PATH="/usr/local/opt/sqlite/bin:$PATH"
+#export LDFLAGS="-L/usr/local/opt/readline/lib $LDFLAGS"
+#export LDFLAGS="-L/usr/local/opt/zlib/lib $LDFLAGS"
+#export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib $LDFLAGS"
+#export LDFLAGS="-L/usr/local/opt/sqlite/lib $LDFLAGS"
+#export CFLAGS="-I/usr/local/opt/readline/include $CFLAGS"
+#export CLFAGS="-I/usr/local/opt/zlib/include $CFLAGS"
+#export CFLAGS="-I/usr/local/opt/openssl@1.1/include $CFLAGS"
+#export CFLAGS="-I/usr/local/opt/sqlite/include $CFLAGS"
+#export CPPFLAGS="-I/usr/local/opt/readline/include $CPPFLAGS"
+#export CPPFLAGS="-I/usr/local/opt/zlib/include $CPPFLAGS"
+#export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include $CPPFLAGS"
+#export CPPFLAGS="-I/usr/local/opt/sqlite/include $CPPFLAGS"
+#export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/zlib/lib/pkgconfig"
+
+export MACOSX_DEPLOYMENT_TARGET=10.14
 
 ## only run pip if there is a virtualenv currently activated
 export PIP_REQUIRE_VIRTUALENV=true
@@ -38,12 +49,21 @@ pyclean () {
 
 ## FUNCTION FOR ACTIVATING VIRTUALENVS
 workon () {
-    source $HOME/.local/share/virtualenvs/$1/bin/activate
+    if [ $# -eq 2 ]
+    then
+        # FIXME: should detect "workon conda envname"
+        # workon conda envname
+        $PYENV_ROOT/versions/miniconda3-latest/bin/conda activate $2
+    else
+        # workon envname
+        source $HOME/.local/share/virtualenvs/$1/bin/activate
+    fi
 }
 
 ## FUNCTION FOR MAKING VIRTUALENVS
 ## example usage:
 ##     mkvenv .env 3.6.6
+## FIXME: should modify to work with conda?
 mkvenv () {
     if [ $# -ne 2 ]
     then
