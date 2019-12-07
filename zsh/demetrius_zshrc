@@ -24,3 +24,6 @@ alias e=emacs
 
 # start CCLS language server
 # exec "$HOME/external_code/ccls/Release/ccls" "$@"
+
+# Demetrius
+DEFAULT_USER='lightmatter'
