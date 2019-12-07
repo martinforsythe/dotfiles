@@ -1,0 +1,14 @@
+export PATH=$PATH:/Library/Developer/CommandLineTools/usr/bin
+
+## LLVM
+# export CPPFLAGS="$CPPFLAGS -I/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"
+# export CPPFLAGS="$CPPFLAGS -I/Library/Developer/CommandLineTools/usr/lib/clang/11.0.0/include"
+# export CPPFLAGS="$CPPFLAGS -I/Library/Developer/CommandLineTools/usr/include"
+# export CPPFLAGS="$CPPFLAGS -I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include"
+# export CPPFLAGS="$CPPFLAGS -I /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks"
+export PATH=/usr/local/opt/llvm/bin:$PATH
+export LDFLAGS="-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib $LDFLAGS"
+export CPPFLAGS="-I/usr/local/opt/llvm/include $CPPFLAGS"
+
+## Oberon
+DEFAULT_USER="oberon"
