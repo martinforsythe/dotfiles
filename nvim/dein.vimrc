@@ -58,6 +58,8 @@ if dein#load_state(expand('~/.config/nvim/dein'))
   call dein#add('jmcantrell/vim-virtualenv', {'on_ft': 'python'})
   " call dein#add('zchee/deoplete-jedi', {'on_i': 1, 'on_ft': 'python'})
   call dein#add('editorconfig/editorconfig-vim', {'on_ft': 'python'})
+  "-- only tested for python so far, but works in multiple languages --
+  call dein#add('janko/vim-test', {'on_ft': 'python'})
 
   " transition between single and multi-line code
   call dein#add('AndrewRadev/splitjoin.vim', {'on_ft': 'python'})

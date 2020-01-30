@@ -9,6 +9,16 @@ let g:python3_host_prog = expand('~/.local/share/virtualenvs/neovim372/bin/pytho
 " let g:python2_host_prog = expand('~/.local/share/virtualenvs/neovim27/bin/python')
 
 "---------------------------------------------
+"               Vim Test
+" For configuration optiosn see docs at:
+" https://github.com/janko/vim-test
+"
+" Run tests with :TestFile :TestLast :TestSuite :TestNearest
+" --------------------------------------------
+let test#strategy = "neovim"
+let test#python#pytest#options = "--verbose"
+
+"---------------------------------------------
 "                SimpylFold
 " For configuration options see docs at:
 " https://github.com/tmhedberg/SimpylFold
