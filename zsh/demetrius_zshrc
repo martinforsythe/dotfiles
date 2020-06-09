@@ -1,13 +1,12 @@
 # Google Cloud SDK
-export CLOUDSDK_PYTHON="$HOME/.pyenv/versions/3.6.8/bin/python3.6"
+export CLOUDSDK_PYTHON="$HOME/.pyenv/versions/3.7.7/bin/python3.7"
 export PATH=$PATH:$(gcloud info --format="value(installation.sdk_root)")/bin
 
 # LMSDK
 export __LMCONF_PREFIX=$HOME/.config/
 export __DYLD_LIBRARY_PATH=$HOME/workspace/lm-sdk/lib
 export LMSDK_DISABLE_SWIG=true
-export LMSDK_DISABLE_PLATFORMS="csim;rtlsim;"
-export LMSDK_ROUNDING_MODE=FLOOR
+export LMSDK_DISABLE_PLATFORMS="rtlsim;pbr"
 export LMSDK_BLAS_LIBRARY="-lopenblas"
 export LMSDK_BLAS_INCLUDE_PATH=/usr/local/opt/openblas/include
 export LMSDK_BLAS_LIBRARY_PATH=/usr/local/opt/openblas/lib
@@ -15,16 +14,29 @@ export LMSDK_BLAS_LIBRARY_PATH=/usr/local/opt/openblas/lib
 # export LD_LIBRARY_PATH=$HOME/workspace/lm-sdk/lib:$LD_LIBRARY_PATH
 export DYLD_LIBRARY_PATH=$HOME/workspace/lm-sdk/lib:$DYLD_LIBRARY_PATH
 
+# Only compile 64x64 and 16x16 8-bit/fp32 CSIM by default
+# 16x16 is not a "real" photocore size so it needs rectangular mem-map
+export CSIM_DISABLE_MEM_MAPS=puzzlepiece
+export CSIM_DISABLE_BITWIDTHS="v16p16;v32p32;v8p16;v16p8"
+export CSIM_DISABLE_PHOTOCORE_SIZES="8x8;32x32;128x128"
+export LMSDK_ROUNDING_MODE=NEAREST
+
+# make CSIM N=64 float
+alias make_csim_64f="make CSIM_DISABLE_MEM_MAPS=puzzlepiece CSIM_DISABLE_BITWIDTHS=\"v16p16;v32p32;v8p16;v8p8;v16p8\" CSIM_DISABLE_PHOTOCORE_SIZES=\"8x8;16x16;32x32;128x128\" LMSDK_DISABLE_PLATFORMS=\"rtlsim;pbr\" LMSDK_DISABLE_SWIG=true"
+
+# export MAKE_OPTS="-j8"
+# Mojave
+# export CFLAGS="-I$(xcrun --show-sdk-path)/usr/include"
+
 # OpenBLAS
 export LDFLAGS="-L/usr/local/opt/openblas/lib $LDFLAGS"
-export CPPFLAGS="-I/usr/local/opt/openblas/include $LDFLAGS"
-export CFLAGS="-I/usr/local/opt/openblas/include $LDFLAGS"
+export CPPFLAGS="-I/usr/local/opt/openblas/include $CPPFLAGS"
+export CFLAGS="-I/usr/local/opt/openblas/include $CFLAGS"
 export PKG_CONFIG_PATH="/usr/local/opt/openblas/lib/pkgconfig:$PKG_CONFIG_PATH"
 
-# Scipy compilation
-# export MACOSX_DEPLOYMENT_TARGET=10.14
-
-export SDKROOT="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk"
+# Catalina
+export MACOSX_DEPLOYMENT_TARGET=10.15
+export SDKROOT="/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk"
 
 # Aliases
 alias e=emacs
