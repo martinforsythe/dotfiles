@@ -15,6 +15,9 @@ export PATH=$PATH:/Library/TeX/texbin
 . $HOME/.bash_profile_venv
 . $HOME/.demetrius_zshrc
 
+export CPATH="/usr/local/include"
+export LIBRARY_PATH=$LIBRARY_PATH:/usr/local/lib
+
 # RUST
 . $HOME/.cargo/env
 export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
@@ -22,7 +25,7 @@ export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src
 # LLVM
 export PATH=/usr/local/opt/llvm/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/opt/llvm/lib:$LD_LIBRARY_PATH
-# export LDFLAGS="-Wl,-rpath,/usr/local/opt/llvm/lib $LDFALGS"
+export LDFLAGS="-Wl,-rpath,/usr/local/opt/llvm/lib $LDFALGS"
 export LDFLAGS="-L/usr/local/opt/llvm/lib $LDFLAGS"
 export CPPFLAGS="-I/usr/local/opt/llvm/include $LDFLAGS"
 export CFLAGS="-I/usr/local/opt/llvm/include $LDFLAGS"
