@@ -103,8 +103,11 @@ alias jpn='jupyter notebook'
 alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
 alias vim='nvim'
 alias inkscape="/Applications/Graphics/Inkscape.app/Contents/Resources/bin/inkscape"
-
+# setting to "--experimental-remote-ip=remote" helps mosh declare the IP to Krypton, but then fails
+# to actually connect to Azure...
+# alias mosh="mosh --experimental-remote-ip=proxy"
 # export DOCKER="$HOME/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux"
+alias pre-commit='pre-commit | grep -v Skipped'
 
 fpath+=~/.zfunc
 
