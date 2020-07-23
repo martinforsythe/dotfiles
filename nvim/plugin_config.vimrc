@@ -5,7 +5,7 @@
 "------------------------------------------------------
 
 " which pythons should neovim use
-let g:python3_host_prog = expand('~/.local/share/virtualenvs/neovim372/bin/python')
+let g:python3_host_prog = expand('~/.local/share/virtualenvs/neovim38/bin/python')
 " let g:python2_host_prog = expand('~/.local/share/virtualenvs/neovim27/bin/python')
 
 "---------------------------------------------
