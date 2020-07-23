@@ -107,7 +107,10 @@ alias inkscape="/Applications/Graphics/Inkscape.app/Contents/Resources/bin/inksc
 # to actually connect to Azure...
 # alias mosh="mosh --experimental-remote-ip=proxy"
 # export DOCKER="$HOME/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux"
-alias pre-commit='pre-commit | grep -v Skipped'
+#alias pre-commit='filtered_pre_commit'
+function filtered_pre_commit {
+    pre-commit "$@" | grep -v Skipped
+}
 
 fpath+=~/.zfunc
 
