@@ -27,8 +27,8 @@ export PATH=/usr/local/opt/llvm/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/opt/llvm/lib:$LD_LIBRARY_PATH
 export LDFLAGS="-Wl,-rpath,/usr/local/opt/llvm/lib $LDFALGS"
 export LDFLAGS="-L/usr/local/opt/llvm/lib $LDFLAGS"
-export CPPFLAGS="-I/usr/local/opt/llvm/include $LDFLAGS"
-export CFLAGS="-I/usr/local/opt/llvm/include $LDFLAGS"
+export CPPFLAGS="-I/usr/local/opt/llvm/include $CPPFLAGS"
+export CFLAGS="-I/usr/local/opt/llvm/include $CFLAGS"
 
 # Homebrew editor
 export EDITOR=nvim
