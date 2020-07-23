@@ -27,6 +27,9 @@ if dein#load_state(expand('~/.config/nvim/dein'))
   " local vimrc files
   call dein#add('MarcWeber/vim-addon-local-vimrc')
 
+  " easily delete/change/add ( [ and " etc
+  call dein#add('tpope/vim-surround')
+
   " status line
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
@@ -39,6 +42,9 @@ if dein#load_state(expand('~/.config/nvim/dein'))
   " autocompletion (only enable in insert mode)
   " We'll use ALE with the CCLS language server for C/C++ so no need for deoplete
   call dein#add('Shougo/deoplete.nvim', {'on_i': 1, 'lazy': 1, 'on_ft': ['python', 'rust']})
+
+  " requirements.txt highlighting
+  call dein#add('raimon49/requirements.txt.vim', {'lazy': 1, 'on_ft': ['pip']})
 
   " call dein#add('Shougo/neosnippet')
   " call dein#add('Shougo/neosnippet-snippets')
