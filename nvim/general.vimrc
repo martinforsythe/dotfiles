@@ -7,6 +7,9 @@
 " Set the default file encoding to UTF-8:
 set encoding=utf-8
 
+autocmd BufRead,BufNewFile requirements.txt setfiletype pip
+autocmd BufRead,BufNewFile requirements.in setfiletype pip
+
 augroup filetype_javascript
     autocmd!
     autocmd FileType javascript nnoremap <leader>y :0,$!eslint<Cr> " eslint with deoplete
@@ -18,6 +21,9 @@ augroup filetype_javascript
     autocmd FileType javascript set colorcolumn=80
 
 augroup END
+
+set undofile   " Maintain undo history between sessions
+set undodir=~/.nvim/undodir
 
 " tabstop:     width of tab character
 " shiftwidth:  ammount of whitespace to add in normal mode
@@ -59,6 +65,7 @@ augroup filetype_python
 
     " show a ruler at 80 chars
     autocmd FileType python set colorcolumn=80
+    autocmd FileType python set colorcolumn=120
 
     " keep indentation level from previous line
     " autocmd FileType python set autoindent
