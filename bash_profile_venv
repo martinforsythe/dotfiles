@@ -10,25 +10,43 @@ then
     PATH="$PYENV_ROOT/bin:$PATH"
     # initialize pyenv
     eval "$(pyenv init -)"
+    WHICH_CONDA="miniconda3-latest"
+    # do NOT add conda root to the PATH because we do not want
+    # conda python to always be on the path
+    export CONDA_ROOT="${PYENV_ROOT}/versions/${WHICH_CONDA}"
+    # eval "$(pyenv virtualenv-init -)"
 fi
 
-## Compiler flags for pyenv to discover homebrew's zlib, openssl, sqlite and readline
-#export PATH="/usr/local/opt/sqlite/bin:$PATH"
-#export LDFLAGS="-L/usr/local/opt/readline/lib $LDFLAGS"
-#export LDFLAGS="-L/usr/local/opt/zlib/lib $LDFLAGS"
-#export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib $LDFLAGS"
-#export LDFLAGS="-L/usr/local/opt/sqlite/lib $LDFLAGS"
-#export CFLAGS="-I/usr/local/opt/readline/include $CFLAGS"
-#export CLFAGS="-I/usr/local/opt/zlib/include $CFLAGS"
-#export CFLAGS="-I/usr/local/opt/openssl@1.1/include $CFLAGS"
-#export CFLAGS="-I/usr/local/opt/sqlite/include $CFLAGS"
-#export CPPFLAGS="-I/usr/local/opt/readline/include $CPPFLAGS"
-#export CPPFLAGS="-I/usr/local/opt/zlib/include $CPPFLAGS"
-#export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include $CPPFLAGS"
-#export CPPFLAGS="-I/usr/local/opt/sqlite/include $CPPFLAGS"
-#export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/zlib/lib/pkgconfig"
+# ## FUNCTION FOR ACTIVATING A SUBSHELL WITH CONDA:
+# start_conda () {
+#     . ~/.conda_setup.zsh
+#     # $CONDA_ROOT/bin/conda init zsh
+#     conda config --set auto_activate_base false
+# }
+# stop_conda () {
+#     rm $HOME/.condarc
+#     export PATH=$_NO_CONDA_PATH
+#     # $CONDA_ROOT/bin/conda init --reverse zsh
+# }
 
-export MACOSX_DEPLOYMENT_TARGET=10.14
+## Compiler flags for pyenv to discover homebrew's zlib, openssl, sqlite and readline
+# CFLAGS="-I$(xcrun --show-sdk-path)/usr/include" pyenv install -v 3.7.7
+# export PATH="/usr/local/opt/sqlite/bin:$PATH"
+# export LDFLAGS="-L/usr/local/opt/readline/lib $LDFLAGS"
+# export LDFLAGS="-L/usr/local/opt/zlib/lib $LDFLAGS"
+# export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib $LDFLAGS"
+# export LDFLAGS="-L/usr/local/opt/sqlite/lib $LDFLAGS"
+# export CFLAGS="-I/usr/local/opt/readline/include $CFLAGS"
+# export CLFAGS="-I/usr/local/opt/zlib/include $CFLAGS"
+# export CFLAGS="-I/usr/local/opt/openssl@1.1/include $CFLAGS"
+# export CFLAGS="-I/usr/local/opt/sqlite/include $CFLAGS"
+# export CPPFLAGS="-I/usr/local/opt/readline/include $CPPFLAGS"
+# export CPPFLAGS="-I/usr/local/opt/zlib/include $CPPFLAGS"
+# export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include $CPPFLAGS"
+# export CPPFLAGS="-I/usr/local/opt/sqlite/include $CPPFLAGS"
+# export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/usr/local/opt/zlib/lib/pkgconfig"
+## Command that did work:
+# LDFLAGS="-L$(brew --prefix zlib)/lib -L$(brew --prefix sqlite)/lib" CPPFLAGS="-I$(brew --prefix zlib)/include -I$(brew --prefix sqlite)/include" pyenv install --keep 3.6.10
 
 ## only run pip if there is a virtualenv currently activated
 export PIP_REQUIRE_VIRTUALENV=true
@@ -43,17 +61,23 @@ gpip() {
 ## FUNCTION FOR REMOVING PYTHON FILES
 pyclean () {
       find . -type f -name "*.py[co]" -delete
+      find . -type f -name ".coverage*" -delete
       find . -type d -name "__pycache__" -exec rm -r {} +;
-      find . -type d -name ".pytest_cache/" -exec rm -r {} +;
+      find . -type d -name ".pytest_cache" -exec rm -r {} +;
 }
+
+#
+# can detect conda through the $CONDA_EXE env var
+#
 
 ## FUNCTION FOR ACTIVATING VIRTUALENVS
 workon () {
     if [ $# -eq 2 ]
     then
         # FIXME: should detect "workon conda envname"
-        # workon conda envname
-        $PYENV_ROOT/versions/miniconda3-latest/bin/conda activate $2
+        conda activate $2
+        export CONDA_ENV=$CONDA_ROOT/envs/$2
+        # FIXME: add prompt modification
     else
         # workon envname
         source $HOME/.local/share/virtualenvs/$1/bin/activate
@@ -67,9 +91,13 @@ workon () {
 mkvenv () {
     if [ $# -ne 2 ]
     then
-        echo "Expected arguments: venv_name python_version"
-        echo "Available python versions:"
-        pyenv versions
+        # echo "Expected arguments: venv_name python_version"
+        # echo "Available python versions:"
+        # pyenv versions
+    # conda command
+        name=$2
+        version=$3
+        conda create --name $name python=$version
     else
         name=$1
         version=$2
